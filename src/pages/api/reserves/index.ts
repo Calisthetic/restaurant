@@ -1,5 +1,5 @@
+import { sql } from '@vercel/postgres';
 import { NextApiRequest, NextApiResponse } from "next"
-import GetTables from './index.get';
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,7 +7,10 @@ export default async function handler(
 ) {
   switch (req.method) {
     case 'GET':
-      GetTables(req, res)
+      break;
+    case 'POST':
+      break;
+    case 'DELETE':
       break;
     default:
       // Invalid method
