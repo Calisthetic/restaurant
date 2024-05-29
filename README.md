@@ -1,6 +1,47 @@
+# Restaurant
+
+## О проекте
+
+Разработан с использованием фреймворка [Next.js](https://nextjs.org/).
+База данных [Postgres](https://vercel.com/docs/storage/vercel-postgres/).
+Диаграмма базы данных [здесь](https://dbdiagram.io/d/restaurant-66561d06b65d933879e8709f)
+
+### Используемые библиотеки
+
+- [vercel/postgres](https://vercel.com/docs/storage/vercel-postgres/quickstart) - провайдер базы данных PostgreSQL (в Vercel)
+- [TailwindCSS](https://tailwindcss.com/docs/installation) - библиотека, наполненная классами для использования CSS в HTML-разметке
+- [PostCSS](https://postcss.org/) - инструмент для преобразования CSS, помогает избегать ошибок и обеспечивает поддержку CSS-модулей
+- [Autoprefixer](https://www.npmjs.com/package/autoprefixer) - плагин для CSS, позволяет НЕ прописывать префиксы для корректного отображения на различных браузерах
+
+## Запуск проекта
+
+### Подготовка ПО
+
+- [Node.js](https://nodejs.org/en) - используемая в проекте среда выполнения JavaScript
+- [Visual Studio Code](https://code.visualstudio.com/download) - редактор кода
+
+### Старт
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Ход разработки
+
+### Установка фреймворка и библиотек
+
+Создание проекта с использованием фреймворка Nex.js
+
+```bash
+npm creat next-app restaurant
+```
+
+Инициализация БД [PostgreSQL](https://www.postgresql.org/) по [этому видео](https://youtu.be/_ad99LhxBeQ?si=gIPsllQ7MOi7prCb)
+
+Установка пакетов/библиотек:
+
+```bash
+npm i @vercel/postgres
+npm i autoprefixer
+```
 
 First, run the development server:
 
