@@ -1,0 +1,252 @@
+/* Slider wrapper*/
+.css-slider-wrapper {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  display: block;
+  height: 600px;
+  width: 100%;
+  max-width: 1024px;
+  transform: translateX(-50%);
+  left: 50%;
+  /* right: 0;
+  bottom: 0; */
+}
+
+
+/* Slider */
+.slider {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: minmax(100%, 1024px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  z-index: 0;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-align: start;
+  -webkit-align-items: start;
+  align-items: start;
+  justify-content: center;
+  align-content: start;
+  -webkit-transition: -webkit-transform 800ms;
+  transition: -webkit-transform 800ms, transform 800ms;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+
+/* each slide backgound color */
+
+.slide1 {
+  left: 0;
+  background-image: url(./../../assets/menu1.jpg);
+}
+
+.slide2 {
+  left: 100%;
+  background-image: url(./../../assets/menu2.jpg);
+}
+
+.slide3 {
+  left: 200%;
+  background-image: url(./../../assets/menu3.jpg);
+}
+
+.slide4 {
+  left: 300%;
+  background-image: url(./../../assets/menu4.jpg);
+}
+
+.slider>div {
+  text-align: center;
+}
+
+
+/* Slider inner slide effect */
+
+.slider h2 {
+  color: var(--text-primary);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 45px;
+  line-height: 120%;
+  opacity: 0;
+  -webkit-transform: translateX(500px);
+  transform: translateX(500px);
+}
+
+.slider .button {
+  color: var(--text-primary);
+  padding: 5px 30px;
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  opacity: 0;
+  font-size: 15px;
+  line-height: 30px;
+  display: inline-block;
+  -webkit-transform: translateX(-500px);
+  transform: translateX(-500px);
+}
+
+.slider h2,
+.slider .button {
+  -webkit-transition: opacity 400ms, -webkit-transform 400ms;
+  transition: transform 400ms, opacity 400ms;
+  -webkit-transition-delay: .4s;
+  /* Safari */
+  transition-delay: .4s;
+}
+
+
+/* Next and Preive arrow */
+
+.control {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  z-index: 55;
+}
+
+.control label {
+  z-index: 0;
+  display: none;
+  text-align: center;
+  line-height: 45px;
+  font-size: 50px;
+  color: var(--foreground-primary);
+  cursor: pointer;
+  opacity: .6;
+  user-select: none;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background-color: var(--background-primary);
+}
+@media (max-width: 1024px) {
+  .control label {
+    opacity: 0.5;
+  }
+}
+
+.control label:hover {
+  opacity: 0.8;
+}
+
+.next {
+  right: 1%;
+}
+
+.previous {
+  left: 1%;
+}
+
+
+/* Slider Pagger */
+.slider-pagination {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.slider-pagination label {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 2px;
+  border: solid 1px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+
+/* Slider Pagger arrow event */
+.slide-radio1:checked~.previous .numb1, /* ДОБАВИЛ */
+.slide-radio1:checked~.next .numb2,
+.slide-radio2:checked~.next .numb3,
+.slide-radio3:checked~.next .numb4,
+.slide-radio2:checked~.previous .numb1,
+.slide-radio3:checked~.previous .numb2,
+.slide-radio4:checked~.previous .numb3,
+.slide-radio4:checked~.next .numb4 /* ДОБАВИЛ */ {
+  display: block;
+  z-index: 1
+}
+
+
+/* Slider Pagger event */
+.slide-radio1:checked~.slider-pagination .page1,
+.slide-radio2:checked~.slider-pagination .page2,
+.slide-radio3:checked~.slider-pagination .page3,
+.slide-radio4:checked~.slider-pagination .page4 {
+  background: rgba(255, 255, 255, 1)
+}
+
+
+/* Slider slide effect */
+
+.slide-radio1:checked~.slider {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.slide-radio2:checked~.slider {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.slide-radio3:checked~.slider {
+  -webkit-transform: translateX(-200%);
+  transform: translateX(-200%);
+}
+
+.slide-radio4:checked~.slider {
+  -webkit-transform: translateX(-300%);
+  transform: translateX(-300%);
+}
+
+.slide-radio1:checked~.slide1 h2,
+.slide-radio2:checked~.slide2 h2,
+.slide-radio3:checked~.slide3 h2,
+.slide-radio4:checked~.slide4 h2,
+.slide-radio1:checked~.slide1 .button,
+.slide-radio2:checked~.slide2 .button,
+.slide-radio3:checked~.slide3 .button,
+.slide-radio4:checked~.slide4 .button {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1
+}
+
+.slide-radio {
+  position: absolute;
+  top: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .slider h2 {
+    font-size: 20px;
+  }
+  .slider>div {
+    padding: 0 2%
+  }
+  .control label {
+    font-size: 35px;
+  }
+  .slider .button {
+    padding: 0 15px;
+  }
+}

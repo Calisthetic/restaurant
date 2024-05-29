@@ -1,0 +1,113 @@
+.header {
+  min-height: 54px;
+  box-shadow: var(--header-shadow);
+  position: fixed;
+  width: 100%;
+  background-color: var(--background-primary);
+  z-index: 999;
+}
+.header >:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav * {
+  font-weight: 600;
+  padding: 0px 12px;
+  text-decoration: none;
+  color: var(--foreground-secondary);
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--background-primary);
+  transition: all 0.3s ease;
+}
+.nav {
+  height: 54px;
+  display: flex;
+}
+.nav > *:first-child {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px 4px;
+  transition: color 0.3s ease;
+}
+.nav > *:hover {
+  border-bottom: 2px solid var(--foreground-accent);
+}
+.nav > *:first-child:hover {
+  border-bottom: 2px solid var(--background-primary);
+  color: var(--foreground-accent);
+}
+@media (max-width: 768px) {
+  .nav > * {
+    position: absolute;
+    display: none;
+  }
+  .nav > *:first-child {
+    position: initial;
+    display: flex !important;
+  }
+}
+@media (max-width: 1024px) {
+  .nav > * {
+    padding: 0px 8px;
+  }
+}
+
+.headerUtilsContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.headerDropButton:hover {
+  color: var(--foreground-accent);
+}
+.headerDropButton {
+  width: 28px;
+  height: 28px;
+  display: none;
+  cursor: pointer;
+  margin: 0px 8px;
+  transition: color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .headerDropButton {
+    display: flex;
+  }
+}
+
+.navDropBox {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition-property: grid-template-rows;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+.navDropItems {
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--foreground-primary);
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+}
+@media (max-width: 768px) {
+  .header:has(#headerDrop:checked) #navDropBox {
+    grid-template-rows: 1fr;
+  }
+}
+.navDropItems > * {
+  font-size: 16px;
+  width: 100%;
+  font-weight: 600;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: var(--foreground-secondary);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-top: 1px solid var(--background-hover);
+}
+.navDropItems > *:hover {
+  color: var(--foreground-accent);
+}

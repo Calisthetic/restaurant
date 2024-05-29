@@ -1,0 +1,39 @@
+.section1 {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 1)), url(../../assets/hamburger.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 54px);
+  display: flex;
+  align-items: end;
+}
+.header1 {
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  margin: 48px;
+}
+.img1 {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(../../assets/tablesetting2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 476px;
+}
+
+.aboutTitle {
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 1rem;
+  letter-spacing: 3px;
+}
+.aboutSubtitle {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  letter-spacing: 3px;
+}
