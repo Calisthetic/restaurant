@@ -17,7 +17,7 @@ type MenuDish = {
 
 
 async function getMenu(): Promise<MenuCategory[]> {
-  const res = await fetch("http://localhost:3000/api/dishes", {
+  const res = await fetch(process.env.API_URL + "/api/dishes", {
     method: "GET"
   });
   if (!res.ok) {

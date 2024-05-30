@@ -50,6 +50,8 @@ npm creat next-app restaurant
 
 Поддержка мультиязычности как в [этом репозиторие](https://github.com/candraKriswinarto/nextlingo/tree/main)
 
+Перевод динамического контента как в [этом репозиторие](https://github.com/opensource-coding/Javascript-Language-Translater)
+
 Установка пакетов/библиотек:
 
 ```bash
