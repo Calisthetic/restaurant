@@ -1,10 +1,12 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import style from "./page.module.css"
 import "./slider.css"
 import ContactForm from './contact-form';
+import Link from 'next/link';
 
 export default function Home() {
   const t = useTranslations('main');
+  const localActive = useLocale();
 
   return (
     <main>
@@ -24,8 +26,8 @@ export default function Home() {
           </div>
           <div className="h-0.5 bg-border"></div>
           <div className='my-20'>
-            <h1 className='text-4xl mb-8 font-semibold text-center'>{t('menu-title')}</h1>
-            <div className='h-[600px]'>
+            <h1 className='text-2xl sm:text-3xl mb-8 font-semibold text-center'>{t('menu-title')}</h1>
+            <div className='css-slider-container'>
               <div className="css-slider-wrapper">
                 <input type="radio" name="slider" className="slide-radio1 slide-radio invisible" defaultChecked id="slider_1"/>
                 <input type="radio" name="slider" className="slide-radio2 slide-radio invisible" id="slider_2"/>
@@ -58,10 +60,19 @@ export default function Home() {
                 <div id="slide4" className="slider slide4"><div></div></div>
               </div>
             </div>
+            <div className='flex justify-center mt-6'>
+            <Link href={localActive + '/menu'} className="p-[3px] relative">
+              <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
+                <div className="px-8 py-2 w-fit rounded-[6px] font-semibold hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
+                  {t("menu-button")}
+                </div>
+              </div>
+            </Link>
+            </div>
           </div>
           <div className="h-0.5 bg-border"></div>
-          <div className='my-20'>
-            <h1>{t("contact-title")}</h1>
+          <div className='my-20 px-4 lg:px-32 xl:px-40'>
+            <h1 className='text-2xl sm:text-3xl mb-8 font-semibold text-center'>{t("contact-title")}</h1>
             <p>{t("contact-description-1")}</p>
             <p className='my-3 font-semibold text-foreground-secondary'>{t("contact-adress")}</p>
             <p>{t("contact-description-2")}</p>

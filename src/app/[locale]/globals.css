@@ -33,6 +33,7 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
+  font-family: 'Lora', serif;
 }
 main {
   margin-top: 56px;

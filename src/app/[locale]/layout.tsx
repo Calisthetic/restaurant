@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header/header";
 import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Lora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

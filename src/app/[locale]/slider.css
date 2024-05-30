@@ -1,10 +1,31 @@
 /* Slider wrapper*/
+:root {
+  --slider-height: 300px;
+}
+@media only screen and (min-width: 450px) {
+  :root {
+    --slider-height: 400px
+  }
+}
+@media only screen and (min-width: 640px) {
+  :root {
+    --slider-height: 500px
+  }
+}
+@media only screen and (min-width: 1024px) {
+  :root {
+    --slider-height: 600px
+  }
+}
+.css-slider-container {
+  height: var(--slider-height);
+}
 .css-slider-wrapper {
   position: absolute;
   display: block;
   overflow: hidden;
   display: block;
-  height: 600px;
+  height: var(--slider-height);
   width: 100%;
   max-width: 1024px;
   transform: translateX(-50%);
