@@ -41,11 +41,18 @@ export default async function PostTables(
       "table_id" int NOT NULL
     );`;
     await sql`
+    CREATE TABLE "dish_categories" (
+      "id" serial PRIMARY KEY,
+      "name" varchar(63) NOT NULL
+    );`;
+    await sql`
     CREATE TABLE "dishes" (
       "id" serial PRIMARY KEY,
       "user_id" int,
+      "category_id" int NOT NULL,
       "name" varchar(255) NOT NULL,
-      "portions" int NOT NULL DEFAULT 1,
+      "price" real NOT NULL,
+      "portions" int DEFAULT 1,
       "cook_time" int
     );`;
     await sql`
@@ -68,6 +75,7 @@ export default async function PostTables(
     await sql`ALTER TABLE "table_reserves" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");`;
     await sql`ALTER TABLE "table_reserves" ADD FOREIGN KEY ("table_id") REFERENCES "tables" ("id");`;
     await sql`ALTER TABLE "dishes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");`;
+    await sql`ALTER TABLE "dishes" ADD FOREIGN KEY ("category_id") REFERENCES "dish_categories" ("id");`;
     await sql`ALTER TABLE "ingredients" ADD FOREIGN KEY ("dish_id") REFERENCES "dishes" ("id");`;
     await sql`ALTER TABLE "recipes" ADD FOREIGN KEY ("dish_id") REFERENCES "dishes" ("id");`;
     res.status(200).send({ result });

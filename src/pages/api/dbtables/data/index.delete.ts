@@ -15,6 +15,7 @@ export default async function DeleteTablesData(
     await sql`DELETE FROM recipes;`;
     await sql`DELETE FROM ingredients;`;
     await sql`DELETE FROM dishes;`;
+    await sql`DELETE FROM dish_categories;`;
     await sql`DELETE FROM users;`;
     await sql`DELETE FROM roles;`;
     // for (let i = 0; i < obj.result.rows.length; i++) {
