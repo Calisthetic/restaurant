@@ -33,10 +33,17 @@ CREATE TABLE "table_reserves" (
   "table_id" int NOT NULL
 );
 
+CREATE TABLE "dish_categories" (
+  "id" serial PRIMARY KEY,
+  "name" varchar(63) NOT NULL
+);
+
 CREATE TABLE "dishes" (
   "id" serial PRIMARY KEY,
   "user_id" int,
+  "category_id" int NOT NULL,
   "name" varchar(255) NOT NULL,
+  "portions" int DEFAULT 1,
   "cook_time" int
 );
 
@@ -68,6 +75,8 @@ ALTER TABLE "table_reserves" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id
 ALTER TABLE "table_reserves" ADD FOREIGN KEY ("table_id") REFERENCES "tables" ("id");
 
 ALTER TABLE "dishes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE "dishes" ADD FOREIGN KEY ("category_id") REFERENCES "dish_categories" ("id");
 
 ALTER TABLE "ingredients" ADD FOREIGN KEY ("dish_id") REFERENCES "dishes" ("id");
 

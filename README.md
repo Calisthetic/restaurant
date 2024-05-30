@@ -3,9 +3,10 @@
 ## О проекте
 
 Разработан с использованием фреймворка [Next.js](https://nextjs.org/).
-База данных [Postgres](https://vercel.com/docs/storage/vercel-postgres/).
 Диаграмма базы данных [здесь](https://dbdiagram.io/d/restaurant-66561d06b65d933879e8709f).
-Размещён на хостинге при помощи [Velcel](https://vercel.com)
+Размещён на хостинге при помощи [Velcel](https://vercel.com).
+База данных [Postgres](https://vercel.com/docs/storage/vercel-postgres/) расположена на Vercel.
+Перевод динамического контента GoodleAPI
 
 ### Используемые библиотеки
 
@@ -14,6 +15,7 @@
 - [PostCSS](https://postcss.org/) - инструмент для преобразования CSS, помогает избегать ошибок и обеспечивает поддержку CSS-модулей
 - [Autoprefixer](https://www.npmjs.com/package/autoprefixer) - плагин для CSS, позволяет НЕ прописывать префиксы для корректного отображения на различных браузерах
 - [next-intl](next-intl-docs.vercel.app/docs/getting-started) - поддержка различных языков
+- [react-input-mask](https://www.npmjs.com/package/react-input-mask) - маска для ввода номера телефона
 
 ## Запуск проекта
 
@@ -38,7 +40,7 @@ npm run dev
 
 ### Установка фреймворка и библиотек
 
-Создание проекта с использованием фреймворка Nex.js
+Создание проекта с использованием фреймворка Next.js
 
 ```bash
 npm creat next-app restaurant
@@ -54,6 +56,21 @@ npm creat next-app restaurant
 npm i @vercel/postgres
 npm i autoprefixer
 npm install next-intl
+npm i react-input-mask
+npm i --save-dev @types/react-input-mask
 ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Использованные ресурсы
+
+Рецепты [eda.ru](https://eda.ru/):
+
+- [Картофельное пюре](https://eda.ru/recepty/osnovnye-blyuda/kartofelnoe-pjure-29188)
+- [Курица, запеченная в хрустящей корочке, с имбирем и апельсинами](https://eda.ru/recepty/osnovnye-blyuda/kurica-zapechennaja-v-hrustjaschej-korochke-s-imbirem-apelsinami-30720)
+- [Баранья нога в мятной панировке](https://eda.ru/recepty/osnovnye-blyuda/baranja-noga-v-mjatnoj-panirovke-18570)
+- [Запеченный говяжий край](https://eda.ru/recepty/osnovnye-blyuda/zapechennij-govjazhij-kraj-17670)
+- [Ароматная свинина в духовке](https://eda.ru/recepty/osnovnye-blyuda/aromatnaya-svinina-v-duhovke-35305)
+- [Говядина «Веллингтон» по рецепту Гордона Рамзи](https://eda.ru/recepty/osnovnye-blyuda/govjadina-vellington-po-receptu-gordona-ramzi-51381)
+- [Греческий салат](https://eda.ru/recepty/salaty/nastojaschij-grecheskij-salat-30893)
+- [Закуска из красной рыбы в хрустящем тесте](https://eda.ru/recepty/zakuski/zakuska-iz-krasnoy-ryby-v-hrustyaschem-teste-140928)
+- [Гороховый крем-суп с чесночными гренками](https://eda.ru/recepty/supy/gorohovij-krem-sup-s-chesnochnimi-grenkami-39915)
+- [Чизкейк с персиками](https://eda.ru/recepty/vypechka-deserty/chizkejk-s-persikami-bez-vipechki-38864)
