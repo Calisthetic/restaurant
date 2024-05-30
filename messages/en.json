@@ -1,7 +1,50 @@
 {
+  "data": {
+    "restaurant": "Restaurant",
+    "phone": "+7(982)487-37-95",
+    "email": "yarik.malugin2004@mail.ru",
+    "adress": "Perm, Popova st. 101"
+  },
+  "header": {
+    "title": "Restaurant",
+    "menu": "Menu",
+    "gallery": "Gallery"
+  },
+  "footer": {
+    "section-1-1": "Call us",
+    "section-2-1": "Schedule",
+    "section-2-2": "Mon-Fr - 12:00-00:00",
+    "section-2-3": "Sat-Sun - 12:00-04:00",
+    "section-3-1": "Come to us",
+    "section-4-1": "Reserve a table",
+    "section-5-1": "Powered by student 20СПИ4"
+  },
   "main": {
-    "about-title": "About Catering",
-    "about-description-1": "The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use seasonal ingredients.",
-    "about-description-2": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "title": "Le Catering",
+    "about-title": "About restaurant",
+    "about-subtitle": "Traditions since 1889",
+    "about-description-1": "The catering establishment was founded in Perm by Mr Smith in 1992 to help him become the best in the field of nutrition and also to improve his qualifications in the field of nutrition, particularly in the fields of health, health and social care. We do our best to minimize the consequences that may arise from our efforts. This can lead to censure, or it can lead to voluptuousness, but not to death, but to disappearance from the face of the earth. We use only fresh ingredients.",
+    "about-description-2": "Except when it happens by accident, when officials leave their jobs, and when they are members of the labor elite, they commit temporary offenses related to labor and longevity. We do our best to minimize the consequences that may arise from our efforts.",
+    "menu-title": "Our menu",
+    "menu-button": "See more",
+    "contact-title": "Contacts",
+    "contact-adress": "Perm, Popova st. 101",
+    "contact-description-1": "Our restaurant is a leader in event planning, service and catering for the public and private sectors. We have rich experience in preparing the finest types of food in accordance with international food safety standards.",
+    "contact-description-2": "You can also contact us by phone +7(982)487-37-95 or send an e-mail to yarik.malugin2004@mail.ru, or leave a request here:",
+    "reserve-name": "You name",
+    "reserve-people": "How many people will come?",
+    "reserve-message": "Message / Additional Requirements",
+    "reserve-button": "Send"
+  },
+  "gallery": {
+    "title": "Photo gallery of the restaurant",
+    "image-1": "Our employees",
+    "image-2": "Our dishes",
+    "image-3": "Interior",
+    "image-4": "Banqueting hall"
+  },
+  "menu": {
+    "title": "Restaurant menu",
+    "error": "Failed to load menu..."
   }
 }
