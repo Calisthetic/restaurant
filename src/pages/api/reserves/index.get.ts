@@ -1,7 +1,7 @@
 import { sql } from '@vercel/postgres';
 import { NextApiRequest, NextApiResponse } from "next"
 
-export default async function GetTables(
+export default async function GetTableReserves(
   req: NextApiRequest,
   res: NextApiResponse
 ) {

@@ -45,6 +45,7 @@ export default async function PostTables(
       "id" serial PRIMARY KEY,
       "user_id" int,
       "name" varchar(255) NOT NULL,
+      "portions" int NOT NULL DEFAULT 1,
       "cook_time" int
     );`;
     await sql`
@@ -61,7 +62,6 @@ export default async function PostTables(
       "text" text NOT NULL
     );`;
     await sql`COMMENT ON COLUMN "users"."login" IS 'исп для входа в систему';`;
-    await sql`COMMENT ON COLUMN "table_reserves"."user_email" IS 'email or phone';`;
     await sql`COMMENT ON COLUMN "table_reserves"."user_id" IS 'Если пользователь был найден в базе';`;
     await sql`COMMENT ON COLUMN "ingredients"."count" IS 'Оставить null, если по вкусу';`;
     await sql`ALTER TABLE "users" ADD FOREIGN KEY ("role_id") REFERENCES "roles" ("id");`;
