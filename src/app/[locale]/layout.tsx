@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider>
-          <Header restaurant={useTranslations("data")("restaurant")}>
+          <Header currentLocal={localActive} restaurant={useTranslations("data")("restaurant")}>
             {paths.map((item, index) => (<Link key={index} href={item.path}>{t(item.name)}</Link>))}
           </Header>
         </NextIntlClientProvider>

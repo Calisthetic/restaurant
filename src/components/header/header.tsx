@@ -5,7 +5,7 @@ import LocalSwitcher from "../local-switcher"
 import style from "./header.module.css"
 import { useEffect, useRef } from "react"
 
-export default function Header({restaurant, children}:any) {
+export default function Header({restaurant, localActive, children}:any) {
   const headerDrop:any = useRef()
   const headerDropBtn:any = useRef()
 
@@ -31,7 +31,7 @@ export default function Header({restaurant, children}:any) {
     <header className={style.header}>
       <div>
         <nav role="navigation" className={style.nav}>
-          <Link href="/">{restaurant}</Link>
+          <Link href={"/" + localActive}>{restaurant}</Link>
           {children}
         </nav>
         <div className={style.headerUtilsContainer}>

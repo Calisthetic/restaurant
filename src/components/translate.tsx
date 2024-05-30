@@ -5,7 +5,6 @@ async function translateText(text:string, localActive:string):Promise<string> {
   await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${localActive === "ru" ? "en" : "ru"}&tl=${localActive}&dt=t&q=${text}`)
   .then((res) => res.json())
   .then((data) => {result = data[0][0][0]})
-  console.log(result)
   return result
 }
 

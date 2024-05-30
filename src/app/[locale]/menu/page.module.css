@@ -2,32 +2,45 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-bottom: 1px solid black;
   position: relative;
   cursor: pointer;
+  margin-top: 20px;
 }
 .questionIcon {
-  width: 16px;
+  width: 24px;
   display: flex;
   justify-content: center;
+  transition: all .3s ease;
 }
-.questionIconOpen {
-  display: none;
-}
-.invisibleInput:checked ~ * .questionIconClosed {
-  display: none;
-}
-.invisibleInput:checked ~ * .questionIconOpen {
-  display: block;
+.invisibleInput:checked ~ * > .questionIcon {
+  transform: scale(1, -1);
 }
 .questionTitle {
+  padding: 4px 16px;
+  margin-top: 8px;
   width: 100%;
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-bottom: 1px solid var(--foreground-accent);
+}
+@media (min-width: 460px) {
+  .questionTitle {
+    font-size: 20px;
+  }
+}
+@media (min-width: 640px) {
+  .questionTitle {
+    font-size: 24px;
+  }
 }
 .answerBox {
   display: grid;
   grid-template-rows: 0fr;
-  transition-property: grid-template-rows;
+  transition-property: all;
   transition-duration: 0.25s;
   transition-timing-function: ease;
 }
@@ -36,6 +49,7 @@
 }
 .invisibleInput:checked ~ .answerBox {
   grid-template-rows: 1fr;
+  padding-top: 8px;
 }
 .invisibleInput {
   position: absolute;
@@ -47,4 +61,21 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+
+
+.dishes {
+  display: grid;
+  grid-template-columns:auto minmax(16px, 1fr) min-content;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+  align-items: end;
+}
+@media (min-width: 640px) {
+  .dishes {
+    grid-template-columns: min-content 1fr min-content;
+  }
 }
