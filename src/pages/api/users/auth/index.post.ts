@@ -6,8 +6,10 @@ export default async function PostUserAuth(
   res: NextApiResponse
 ) {
   try {
+    const { login, password } = req.body
     const result =
-      await sql`SELECT * FROM information_schema.tables WHERE table_schema = 'public';`;
+      await sql`SELECT * FROM users WHERE (email = ${login} AND password = ${password}) 
+      OR (login = ${login} AND password = ${password});`;
     res.status(200).send({ result }.result.rows);
   } catch (error) {
     res.status(500).send({ error });

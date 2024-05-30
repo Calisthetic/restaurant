@@ -22,6 +22,9 @@ const config: Config = {
       },
       boxShadow: {
         "header-shadow": "var(--header-shadow)"
+      },
+      fontFamily: {
+        'minion': ['Minion Pro', 'serif']
       }
     },
   },
