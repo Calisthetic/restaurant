@@ -8,7 +8,8 @@
   "header": {
     "title": "Restaurant",
     "menu": "Menu",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "staff": "Staff"
   },
   "footer": {
     "section-1-1": "Call us",
@@ -46,5 +47,11 @@
   "menu": {
     "title": "Restaurant menu",
     "error": "Failed to load menu..."
+  },
+  "sign-in": {
+    "login": "Login or e-mail",
+    "password": "Password",
+    "button": "Sign in",
+    "title": "Welcome!"
   }
 }
