@@ -25,7 +25,7 @@ CREATE TABLE "table_reserves" (
   "id" serial PRIMARY KEY,
   "user_name" varchar(63) NOT NULL,
   "user_email" varchar(63),
-  "user_phone" varchar(15),
+  "user_phone" varchar(30),
   "people_count" int NOT NULL DEFAULT 1,
   "reserve_at" timestamp NOT NULL,
   "message" varchar,

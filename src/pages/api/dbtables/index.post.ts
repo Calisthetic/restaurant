@@ -33,7 +33,7 @@ export default async function PostTables(
     CREATE TABLE "table_reserves" (
       "id" serial PRIMARY KEY,
       "user_name" varchar(63) NOT NULL,
-      "user_phone" varchar(15) NOT NULL,
+      "user_phone" varchar(30) NOT NULL,
       "people_count" int NOT NULL DEFAULT 1,
       "reserve_at" timestamp NOT NULL,
       "message" text,
