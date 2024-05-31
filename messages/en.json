@@ -7,6 +7,7 @@
   },
   "header": {
     "title": "Restaurant",
+    "description": "Powered by student 20SPI4",
     "menu": "Menu",
     "gallery": "Gallery",
     "staff": "Staff"
@@ -18,7 +19,7 @@
     "section-2-3": "Sat-Sun - 12:00-04:00",
     "section-3-1": "Come to us",
     "section-4-1": "Reserve a table",
-    "section-5-1": "Powered by student 20СПИ4"
+    "section-5-1": "Powered by student 20SPI4"
   },
   "main": {
     "title": "Le Catering",

@@ -30,14 +30,13 @@ async function getMenu(): Promise<MenuCategory[]> {
 export default async function Menu() {
   const t = await getTranslations('menu');
   const localActive = await getLocale();
-
   
   try {
     const menu: MenuCategory[] = await getMenu();
     
     return (
     <main className='flex flex-col items-center'>
-      <div className='md:max-w-4xl sm:max-w-2xl w-full'>
+      <div className='lg:max-w-4xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{t("title")}</h1>
         
         <div className="mt-10 mb-20 mx-2">

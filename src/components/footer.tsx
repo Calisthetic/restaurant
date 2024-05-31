@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-0.5 bg-border"></div>
-        <div className="flex justify-between m-2 text-foreground-secondary">
+        <div className="flex flex-col sm:flex-row items-center sm:justify-between m-2 text-foreground-secondary">
           <p>{t("section-5-1")}</p>
           <a href={"mailto:" + td("email")}>{td("email")}</a>
         </div>
