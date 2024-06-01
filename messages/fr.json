@@ -1,0 +1,91 @@
+{
+  "data": {
+    "restaurant": "Restaurant",
+    "phone": "+7(982)487-37-95",
+    "email": "yarik.malugin2004@mail.ru",
+    "adress": "Perm, rue Popova 101"
+  },
+  "header": {
+    "title": "Restaurant",
+    "description": "Complété par l'étudiant 20SPI4",
+    "menu": "Menu",
+    "gallery": "Galerie",
+    "staff": "Employés"
+  },
+  "footer": {
+    "section-1-1": "Appelez-nous",
+    "section-2-1": "Calendrier",
+    "section-2-2": "Du lundi au vendredi - 12:00-00:00",
+    "section-2-3": "Samedi-Dim - 12:00-04:00",
+    "section-3-1": "Viens à nous",
+    "section-4-1": "Réserver une table",
+    "section-5-1": "Complété par l'étudiant 20SPI4"
+  },
+  "main": {
+    "title": "Le Catering",
+    "about-title": "À propos du restaurant",
+    "about-subtitle": "Traditions depuis 1889",
+    "about-description-1": "L'établissement de restauration a été fondé à Perm par M. Smith en 1992 pour l'aider à devenir le meilleur dans le domaine de la nutrition et également pour améliorer ses qualifications dans le domaine de la nutrition, notamment dans les domaines de la santé, de la santé et des services sociaux. Nous faisons de notre mieux pour minimiser les conséquences pouvant découler de nos efforts. Cela peut conduire à la censure, ou à la volupté, mais pas à la mort, mais à la disparition de la surface de la terre. Nous utilisons uniquement des ingrédients frais.",
+    "about-description-2": "Sauf lorsque cela se produit par accident, lorsque les fonctionnaires quittent leur emploi et lorsqu'ils font partie de l'élite ouvrière, ils commettent des délits temporaires liés au travail et à la longévité. Nous faisons de notre mieux pour minimiser les conséquences pouvant découler de nos efforts.",
+    "menu-title": "Notre carte",
+    "menu-button": "Voir plus",
+    "contact-title": "Contacts",
+    "contact-adress": "Perm, rue Popova 101",
+    "contact-description-1": "Notre restaurant est un leader en matière d'organisation d'événements, de service et de restauration pour les secteurs public et privé. Nous possédons une riche expérience dans la préparation des meilleurs types d’aliments conformément aux normes internationales de sécurité alimentaire.",
+    "contact-description-2": "Vous pouvez également nous contacter par téléphone +7(982)487-37-95 ou envoyer un e-mail à yarik.malugin2004@mail.ru, ou laisser une demande ici :",
+    "reserve-name": "Votre nom",
+    "reserve-people": "Combien de personnes viendront?",
+    "reserve-message": "Message / Exigences supplémentaires",
+    "reserve-button": "Envoyer"
+  },
+  "gallery": {
+    "title": "Galerie photo du restaurant",
+    "image-1": "Nos employés",
+    "image-2": "Nos plats",
+    "image-3": "Intérieur",
+    "image-4": "Salle de banquet"
+  },
+  "menu": {
+    "title": "Le menu du restaurant",
+    "error": "Impossible de charger le menu..."
+  },
+  "sign-in": {
+    "login": "Connectez-vous ou e-mail",
+    "password": "Mot de passe",
+    "title": "Accueillir!",
+    "already-auth": "Vous êtes connecté avec succès!",
+    "button-entry": "Entrer",
+    "button-exit": "Sortir",
+    "button-to-workspace": "Travailler"
+  },
+  "workspace": {
+    "no-auth": "Il semble que vous n'êtes pas connecté",
+    "to-auth": "Entrer",
+    "recipes-title": "Recettes du menu",
+    "recipes-error": "Échec du chargement des recettes...",
+    "recipes-zero": "Aucune recette n'a été trouvée...",
+    "users-title": "Employés",
+    "users-error": "Impossible d'obtenir la liste des employés...",
+    "users-zero": "Aucun employé n'a été trouvé...",
+    "reserves-title": "Tables réservées",
+    "reserves-error": "Échec de l'obtention des tables réservées...",
+    "reserves-zero": "Aucune table n'est réservée...",
+    "recipes-ingredients-1": "ingrédient",
+    "recipes-ingredients-2": "ingrédients",
+    "recipes-ingredients-3": "ingrédients",
+    "recipes-portions-1": "portion",
+    "recipes-portions-2": "portions",
+    "recipes-portions-3": "portions",
+    "recipes-hours-1": "heure",
+    "recipes-hours-2": "heures",
+    "recipes-hours-3": "heures",
+    "recipes-minutes-1": "minute",
+    "recipes-minutes-2": "minutes",
+    "recipes-minutes-3": "minutes",
+    "recipes-button": "Voir le zepept",
+    "recipe-ingredients": "Ingrédients",
+    "recipe-steps": "Recette",
+    "recipe-back": "Au menu",
+    "recipe-error": "Échec du chargement de la recette..."
+  }
+}

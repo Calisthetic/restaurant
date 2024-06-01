@@ -27,6 +27,7 @@ export default function LocalSwitcher() {
       >
         <option value='ru'>Русский</option>
         <option value='en'>English</option>
+        <option value='fr'>Français</option>
       </select>
     </label>
   );
