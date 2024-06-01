@@ -52,7 +52,40 @@
   "sign-in": {
     "login": "Логин или e-mail",
     "password": "Пароль",
-    "button": "Войти",
-    "title": "Добро пожаловать!"
+    "title": "Добро пожаловать!",
+    "already-auth": "Вы успешно авторизованы!",
+    "button-entry": "Войти",
+    "button-exit": "Выйти",
+    "button-to-workspace": "К работе"
+  },
+  "workspace": {
+    "no-auth": "Похоже, что Вы не авторизовались",
+    "to-auth": "Войти",
+    "recipes-title": "Рецепты из меню",
+    "recipes-error": "Не удалось загрузить рецепты...",
+    "recipes-zero": "Рецепты не были найдены...",
+    "users-title": "Сотрудники",
+    "users-error": "Не удалось получить список сотрудников...",
+    "users-zero": "Сотрудники не были найдены...",
+    "reserves-title": "Забронированные столы",
+    "reserves-error": "Не удалось получить забронированные столы...",
+    "reserves-zero": "Ни один стол не забронирован...",
+    "recipes-ingredients-1": "ингридиент",
+    "recipes-ingredients-2": "ингридиента",
+    "recipes-ingredients-3": "ингридиентов",
+    "recipes-portions-1": "порция",
+    "recipes-portions-2": "порции",
+    "recipes-portions-3": "порций",
+    "recipes-hours-1": "час",
+    "recipes-hours-2": "часа",
+    "recipes-hours-3": "часов",
+    "recipes-minutes-1": "минута",
+    "recipes-minutes-2": "минуты",
+    "recipes-minutes-3": "минут",
+    "recipes-button": "Смотреть цепепт",
+    "recipe-ingredients": "Ингридиенты",
+    "recipe-steps": "Рецепт",
+    "recipe-back": "В меню",
+    "recipe-error": "Не удалось загрузить рецепт..."
   }
 }

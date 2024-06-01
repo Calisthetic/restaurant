@@ -13,7 +13,7 @@ export default function LocalSwitcher() {
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     startTransition(() => {
-      router.replace(`/${nextLocale}` + (pathName?.lastIndexOf('/') === 0 ? '' : '/' + pathName?.split('/')[2]));
+      router.replace(`/${nextLocale}` + (pathName?.lastIndexOf('/') === 0 ? '' : '/' + pathName?.slice(4)));
     });
   };
   return (

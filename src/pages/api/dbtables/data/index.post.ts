@@ -70,25 +70,25 @@ export default async function PostTablesData(
   ]
   const dish_categories = [
     {
-      name: 'Горячее'
+      dish_category_name: 'Горячее'
     },
     {
-      name: 'Гарниры'
+      dish_category_name: 'Гарниры'
     },
     {
-      name: 'Салаты и закуски'
+      dish_category_name: 'Салаты и закуски'
     },
     {
-      name: 'Рыба и морепродукты'
+      dish_category_name: 'Рыба и морепродукты'
     },
     {
-      name: 'Супы'
+      dish_category_name: 'Супы'
     },
     {
-      name: 'Десерты'
+      dish_category_name: 'Десерты'
     },
     {
-      name: 'Напитки'
+      dish_category_name: 'Напитки'
     },
   ]
   const dishes = [
@@ -984,7 +984,7 @@ export default async function PostTablesData(
     }
     console.log("insert dish_categories")
     for (let i = 0; i < dish_categories.length; i++) {
-      await sql`INSERT INTO dish_categories (name) VALUES (${dish_categories[i].name});`;
+      await sql`INSERT INTO dish_categories (dish_category_name) VALUES (${dish_categories[i].dish_category_name});`;
     }
     console.log("insert dishes")
     for (let i = 0; i < dishes.length; i++) {

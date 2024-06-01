@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import GetRecipes from './index.get';
+import GetRecipe from './index.get';
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   switch (req.method) {
     case 'GET':
-      GetRecipes(req, res)
+      GetRecipe(req, res)
       break;
     default:
       // Invalid method

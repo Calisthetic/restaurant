@@ -43,7 +43,7 @@ export default async function PostTables(
     await sql`
     CREATE TABLE "dish_categories" (
       "id" serial PRIMARY KEY,
-      "name" varchar(63) NOT NULL
+      "dish_category_name" varchar(63) NOT NULL
     );`;
     await sql`
     CREATE TABLE "dishes" (

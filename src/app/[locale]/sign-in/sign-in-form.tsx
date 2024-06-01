@@ -1,8 +1,9 @@
 "use client"
 
 import { useLocale } from "next-intl"
+import Link from "next/link"
 import { redirect } from "next/navigation"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 type UserInfo = {
   id:number
@@ -14,8 +15,24 @@ type UserInfo = {
   third_name?:string
   gender:boolean
 }
+export type SignInTranslationsProps = {
+  login:string
+  password:string
+  alreadyAuth:string
+  buttonExit:string
+  buttonEntry:string
+  buttonToWorkspace:string
+}
 
-export default function SignInForm(props:any) {
+export default function SignInForm({translations}:{translations:SignInTranslationsProps}) {
+  const [isAuth, setIsAuth] = useState(false)
+  const [isAuthUpdate, setIsAuthUpdate] = useState(false)
+
+  useEffect(() => {
+    const roleId = localStorage.getItem("role-id")
+    setIsAuth(roleId ? true : false)
+  }, [isAuthUpdate])
+
   const loginRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
   const localActive = useLocale();
@@ -41,20 +58,41 @@ export default function SignInForm(props:any) {
       }
     })
     .then((data:UserInfo) => {
-      alert(data.second_name + " " + data.first_name)
-      //redirect("/" + localActive + "/workspace")
+      localStorage.setItem("role-id", data.role_id.toString())
+      setIsAuthUpdate(x => !x)
     })
     .catch(() => alert("Wrong login or password"))
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col mt-8 gap-y-2 items-center w-full max-w-[600px] p-2 sm:p-0">
-      <input required className="outline-none font-sans w-full p-1 border-border rounded border-b-2" type="text" ref={loginRef} name="login" placeholder={props.login}></input>
-      <input required className="outline-none font-sans w-full p-1 border-border rounded border-b-2" type="text" ref={passwordRef} name="password" placeholder={props.password}></input>
-      <button className="p-[3px] relative mt-4">
+  return isAuth ? (
+    <div className="flex flex-col mt-4 gap-y-2 items-center mb-8">
+      <p className="text-xl font-semibold">{translations.alreadyAuth}</p>
+      <Link href={"/" + localActive + "/workspace"} className="p-[3px] relative mt-4">
         <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
           <div className="px-8 py-2 w-fit uppercase rounded-[6px] font-semibold hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
-            {props.button}
+            {translations.buttonToWorkspace}
+          </div>
+        </div>
+      </Link>
+      <button className="p-[3px] relative" onClick={() => {
+        localStorage.removeItem("role-id")
+        setIsAuthUpdate(x => !x)
+      }}>
+        <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
+          <div className="px-8 py-2 w-fit uppercase rounded-[6px] font-semibold hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
+            {translations.buttonExit}
+          </div>
+        </div>
+      </button>
+    </div>
+  ) : (
+    <form onSubmit={handleSubmit} className="flex flex-col mt-8 gap-y-2 items-center w-full max-w-[600px] p-2 sm:p-0">
+      <input required className="outline-none font-sans w-full p-1 border-border rounded border-b-2" type="text" ref={loginRef} name="login" placeholder={translations.login}></input>
+      <input required className="outline-none font-sans w-full p-1 border-border rounded border-b-2" type="text" ref={passwordRef} name="password" placeholder={translations.password}></input>
+      <button className="p-[3px] relative mt-4" type="submit">
+        <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
+          <div className="px-8 py-2 w-fit uppercase rounded-[6px] font-semibold hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
+            {translations.buttonEntry}
           </div>
         </div>
       </button>

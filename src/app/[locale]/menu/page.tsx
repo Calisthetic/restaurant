@@ -1,11 +1,11 @@
 import { getLocale, getTranslations } from "next-intl/server"
 import style from "./page.module.css"
-import Translate from "@/components/translate";
 import { Suspense } from "react";
+import TranslateAsync from "@/components/translate-async";
 
 type MenuCategory = {
   id: number,
-  name: string,
+  dish_category_name: string,
   dishes: MenuDish[]
 }
 type MenuDish = {
@@ -45,8 +45,8 @@ export default async function Menu() {
               <input type="checkbox" className={style.invisibleInput} defaultChecked={true}/>
               <div className={style.questionTitle}>
                 <div></div>
-                <Suspense fallback={item.name}>
-                  <Translate to={localActive} text={item.name}></Translate>
+                <Suspense fallback={item.dish_category_name}>
+                  <TranslateAsync to={localActive} text={item.dish_category_name}></TranslateAsync>
                 </Suspense>
                 <div className={style.questionIcon}>
                   <svg enableBackground="new 0 0 32 32" height="24" version="1.1" viewBox="0 0 32 32" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ export default async function Menu() {
                     <div key={index} className={style.dishes}>
                       <div className="bg-background-primary whitespace-normal sm:whitespace-nowrap">
                         <Suspense fallback={dish.name}>
-                          <Translate to={localActive} text={dish.name}></Translate>
+                          <TranslateAsync to={localActive} text={dish.name}></TranslateAsync>
                         </Suspense>
                       </div>
                       <div className="border-foreground-secondary opacity-60 border-b-0 sm:border-b border-dashed -translate-y-1"></div>

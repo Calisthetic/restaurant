@@ -52,7 +52,40 @@
   "sign-in": {
     "login": "Login or e-mail",
     "password": "Password",
-    "button": "Sign in",
-    "title": "Welcome!"
+    "title": "Welcome!",
+    "already-auth": "You are successfully logged in!",
+    "button-entry": "Sign in",
+    "button-exit": "Sign out",
+    "button-to-workspace": "To workspace"
+  },
+  "workspace": {
+    "no-auth": "It looks like you are not logged in",
+    "to-auth": "Log in",
+    "recipes-title": "Recipes from the menu",
+    "recipes-error": "Failed to load recipes...",
+    "recipes-zero": "No recipes were found...",
+    "users-title": "Employees",
+    "users-error": "Failed to get list of employees...",
+    "users-zero": "No employees were found...",
+    "reserves-title": "Reserved tables",
+    "reserves-error": "Failed to get reserved tables...",
+    "reserves-zero": "No table is reserved...",
+    "recipes-ingredients-1": "ingredients",
+    "recipes-ingredients-2": "ingredients",
+    "recipes-ingredients-3": "ingredients",
+    "recipes-portions-1": "portions",
+    "recipes-portions-2": "portions",
+    "recipes-portions-3": "portions",
+    "recipes-hours-1": "housr",
+    "recipes-hours-2": "housr",
+    "recipes-hours-3": "housr",
+    "recipes-minutes-1": "minutes",
+    "recipes-minutes-2": "minutes",
+    "recipes-minutes-3": "minutes",
+    "recipes-button": "See recipe",
+    "recipe-ingredients": "Ingredients",
+    "recipe-steps": "Steps",
+    "recipe-back": "Back to menu",
+    "recipe-error": "Failed to load recipe..."
   }
 }
