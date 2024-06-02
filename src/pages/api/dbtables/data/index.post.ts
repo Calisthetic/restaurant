@@ -961,56 +961,105 @@ export default async function PostTablesData(
   ]
   const table_reserves = [
     {
-      user_name: "",
-      user_phone: "79516579716",
-      people_count: 4,
-      reserve_at: "2024-06-11 20:00:00",
-      message: null,
-      table_id: 1,
+      user_name: "Краснов Вадим",
+      user_phone: "+7(946)413-64-46",
+      people_count: 3,
+      reserve_at: "2024-06-21T16:00:00.000Z",
+      message: "",
+      table_id: 3
     },
+    {
+      user_name: "Марина",
+      user_phone: "+7(976)431-64-63",
+      people_count: 1,
+      reserve_at: "2024-07-01T15:30:00.000Z",
+      message: "",
+      table_id: 17
+    },
+    {
+      user_name: "Николаев Кирилл",
+      user_phone: "+7(961)313-54-68",
+      people_count: 5,
+      reserve_at: "2024-06-27T21:40:00.000Z",
+      message: "Возможно опоздаем на минут 20",
+      table_id: 7
+    }
   ]
 
   try {
     console.log("insert roles")
+    const promises:Promise<any>[] = []
     for (let i = 0; i < roles.length; i++) {
-      await sql`INSERT INTO roles (name) VALUES (${roles[i].name});`;
+      promises.push(sql`INSERT INTO roles (name) VALUES (${roles[i].name});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert users")
     for (let i = 0; i < users.length; i++) {
       const u = users[i]
-      await sql`INSERT INTO users 
+      promises.push(sql`INSERT INTO users 
       (role_id, first_name, second_name, third_name, email, login, password, gender) VALUES 
-      (${u.role_id}, ${u.first_name}, ${u.second_name}, ${u.third_name}, ${u.email}, ${u.login}, ${u.password}, ${u.gender});`;
+      (${u.role_id}, ${u.first_name}, ${u.second_name}, ${u.third_name}, ${u.email}, ${u.login}, ${u.password}, ${u.gender});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert dish_categories")
     for (let i = 0; i < dish_categories.length; i++) {
-      await sql`INSERT INTO dish_categories (dish_category_name) VALUES (${dish_categories[i].dish_category_name});`;
+      promises.push(sql`INSERT INTO dish_categories (dish_category_name) VALUES (${dish_categories[i].dish_category_name});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert dishes")
     for (let i = 0; i < dishes.length; i++) {
-      await sql`INSERT INTO dishes (category_id, name, price, cook_time, portions) VALUES 
-      (${dishes[i].category_id}, ${dishes[i].name}, ${dishes[i].price}, ${dishes[i].cook_time}, ${dishes[i].portions});`;
+      promises.push(sql`INSERT INTO dishes (category_id, name, price, cook_time, portions) VALUES 
+      (${dishes[i].category_id}, ${dishes[i].name}, ${dishes[i].price}, ${dishes[i].cook_time}, ${dishes[i].portions});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert ingredients")
     for (let i = 0; i < ingredients.length; i++) {
-      await sql`INSERT INTO ingredients (dish_id, ingredient, count) VALUES 
-      (${ingredients[i].dish_id}, ${ingredients[i].ingredient}, ${ingredients[i].count});`;
+      promises.push(sql`INSERT INTO ingredients (dish_id, ingredient, count) VALUES 
+      (${ingredients[i].dish_id}, ${ingredients[i].ingredient}, ${ingredients[i].count});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert recipes")
     for (let i = 0; i < recipes.length; i++) {
-      await sql`INSERT INTO recipes (dish_id, text) VALUES 
-      (${recipes[i].dish_id}, ${recipes[i].text});`;
+      promises.push(sql`INSERT INTO recipes (dish_id, text) VALUES 
+      (${recipes[i].dish_id}, ${recipes[i].text});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert tables")
     for (let i = 0; i < tables.length; i++) {
-      await sql`INSERT INTO tables (name, capacity) VALUES (${tables[i].name}, ${tables[i].capacity});`;
+      promises.push(sql`INSERT INTO tables (name, capacity) VALUES (${tables[i].name}, ${tables[i].capacity});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     console.log("insert table_reserves")
     for (let i = 0; i < table_reserves.length; i++) {
       const t = table_reserves[i]
-      await sql`INSERT INTO table_reserves 
+      promises.push(sql`INSERT INTO table_reserves 
       (user_name, user_phone, people_count, reserve_at, message, table_id) VALUES 
-      (${t.user_name}, ${t.user_phone}, ${t.people_count}, ${t.reserve_at}, ${t.message}, ${t.table_id});`;
+      (${t.user_name}, ${t.user_phone}, ${t.people_count}, ${t.reserve_at}, ${t.message}, ${t.table_id});`);
+    }
+    for (let i = promises.length-1; i >= 0; i--) {
+      await promises[i]
+      promises.pop()
     }
     
     const result = await sql``;

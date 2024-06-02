@@ -1,12 +1,41 @@
 import { useLocale, useTranslations } from 'next-intl';
 import style from "./page.module.css"
 import "./slider.css"
-import ContactForm from './contact-form';
+import ContactForm, { ContactFormTranslations, Table } from './contact-form';
 import Link from 'next/link';
+import { Suspense } from 'react';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-export default function Home() {
-  const t = useTranslations('main');
-  const localActive = useLocale();
+async function getTables(error:string):Promise<Table[]> {
+  const res = await fetch(process.env.API_URL + "/api/tables", {
+    method: "GET"
+  });
+  if (!res.ok) {
+    return [{
+      id:1,
+      name:error,
+      capacity:0
+    }]
+  }
+  const data:Table[] = await res.json();
+  return data
+}
+
+export default async function Home() {
+  const t = await getTranslations('main');
+  const localActive = await getLocale();
+
+  const selectOptions = await getTables(t("reserve-error"))
+  const translations:ContactFormTranslations = {
+    message: t("reserve-message"),
+    name: t("reserve-name"),
+    people: t("reserve-people"),
+    button: t("reserve-button"),
+    select: t("reserve-select"),
+    table: t("reserve-table"),
+    sendSuccess:t("reserve-send-success"),
+    sendError:t("reserve-send-error"),
+  }
 
   return (
     <main>
@@ -76,8 +105,9 @@ export default function Home() {
             <p>{t("contact-description-1")}</p>
             <p className='my-3 font-semibold text-foreground-secondary'>{t("contact-adress")}</p>
             <p>{t("contact-description-2")}</p>
-            <ContactForm message={t("reserve-message")} name={t("reserve-name")}
-            people={t("reserve-people")} button={t("reserve-button")}></ContactForm>
+            <Suspense fallback={<div></div>}>
+              <ContactForm translations={translations} selectOptions={selectOptions}></ContactForm>
+            </Suspense>
           </div>
         </div>
       </section>

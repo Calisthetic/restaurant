@@ -27,7 +27,7 @@ CREATE TABLE "table_reserves" (
   "user_email" varchar(63),
   "user_phone" varchar(30),
   "people_count" int NOT NULL DEFAULT 1,
-  "reserve_at" timestamp NOT NULL,
+  "reserve_at" TIMESTAMP WITH TIME ZONE NOT NULL,
   "message" varchar,
   "user_id" int,
   "table_id" int NOT NULL

@@ -56,13 +56,15 @@ const RecipeWorkspace = (({translations, noAuth, dishId}
   }, [isUpdateRecipe])
 
   const [isAuth, setIsAuth] = useState<boolean>()
+  const [hasAuth, setHasAuth] = useState<boolean>(false)
   useEffect(() => {
     const role = localStorage.getItem("role-id")
     setIsAuth(role === "2")
+    setHasAuth(role !== null)
   }, [])
 
   return isAuth === false ? (
-    <NoAuthWorkspace translations={noAuth}></NoAuthWorkspace>
+    <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   ) :  isAuth ? 
     (recipe === undefined ? (
       <div className="mt-20">

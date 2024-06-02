@@ -13,15 +13,19 @@ export type RecipesWorkspaceTranslations = {
   recipesTitle:string
   recipesError:string
   recipesZero:string
+  recipesIngredients0:string
   recipesIngredients1:string
   recipesIngredients2:string
   recipesIngredients3:string
+  recipesPortions0:string
   recipesPortions1:string
   recipesPortions2:string
   recipesPortions3:string
+  recipesHours0:string
   recipesHours1:string
   recipesHours2:string
   recipesHours3:string
+  recipesMinutes0:string
   recipesMinutes1:string
   recipesMinutes2:string
   recipesMinutes3:string
@@ -63,13 +67,15 @@ const RecipesWorkspace = (({translations, noAuth}
   }, [isUpdateMenu])
 
   const [isAuth, setIsAuth] = useState<boolean>()
+  const [hasAuth, setHasAuth] = useState<boolean>(false)
   useEffect(() => {
     const role = localStorage.getItem("role-id")
     setIsAuth(role === "2")
+    setHasAuth(role !== null)
   }, [])
 
   return isAuth === false ? (
-    <NoAuthWorkspace translations={noAuth}></NoAuthWorkspace>
+    <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   ) :  isAuth ? 
     (menu === undefined ? (
       <div className="mt-20">
@@ -111,7 +117,8 @@ const RecipesWorkspace = (({translations, noAuth}
                             <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
                           </svg>
                           <span>{dish.ingredients_count + " " + modifyTextForNumber(dish.ingredients_count, 
-                          translations.recipesIngredients1, translations.recipesIngredients2, translations.recipesIngredients3)}</span>
+                          translations.recipesIngredients0, translations.recipesIngredients1, 
+                          translations.recipesIngredients2, translations.recipesIngredients3)}</span>
                         </div>
                         <div className="flex flex-nowrap whitespace-nowrap gap-2">
                           <svg enable-background="new 0 0 24 24" className="w-4 h-4" version="1.1" 
@@ -121,7 +128,8 @@ const RecipesWorkspace = (({translations, noAuth}
                             1,1h1v1.1C4.8,8.6,0,13.7,0,20   h2H22z M12,10c4.8,0,8.9,3.4,9.8,8H2.2C3.1,13.4,7.2,10,12,10z"/>
                             <path d="M16.5,12.2L16,13.1c1.5,0.9,2.7,2.2,3.4,3.8l0.9-0.4C19.6,14.7,18.2,13.2,16.5,12.2z"/></g>
                           </svg>
-                          <span>{dish.portions + " " + modifyTextForNumber(dish.portions, translations.recipesPortions1, 
+                          <span>{dish.portions + " " + modifyTextForNumber(dish.portions, 
+                            translations.recipesPortions0, translations.recipesPortions1, 
                             translations.recipesPortions2, translations.recipesPortions3)}</span>
                         </div>
                         <div className="flex flex-nowrap whitespace-nowrap gap-2">
@@ -132,18 +140,22 @@ const RecipesWorkspace = (({translations, noAuth}
                           {
                             dish.cook_time >= 60 ? (
                               dish.cook_time % 60 === 0 ? (
-                                <span>{(dish.cook_time / 60) + " " + modifyTextForNumber(dish.cook_time, translations.recipesHours1, 
+                                <span>{(dish.cook_time / 60) + " " + modifyTextForNumber(dish.cook_time, 
+                                  translations.recipesHours0, translations.recipesHours1, 
                                   translations.recipesHours2, translations.recipesHours3)}</span>
                               ) : (
                                 <span>{Math.floor(dish.cook_time / 60) + " " + 
-                                modifyTextForNumber(Math.floor(dish.cook_time / 60), translations.recipesHours1, 
+                                modifyTextForNumber(Math.floor(dish.cook_time / 60), 
+                                translations.recipesHours0, translations.recipesHours1, 
                                 translations.recipesHours2, translations.recipesHours3) + " " + 
                                 (dish.cook_time - Math.floor(dish.cook_time / 60) * 60) + " " + 
-                                modifyTextForNumber(dish.cook_time, translations.recipesMinutes1, 
+                                modifyTextForNumber(dish.cook_time, 
+                                translations.recipesMinutes0, translations.recipesMinutes1, 
                                 translations.recipesMinutes2, translations.recipesMinutes3)}</span>
                               )
                             ) : (
-                              <span>{dish.cook_time + " " + modifyTextForNumber(dish.cook_time, translations.recipesMinutes1, 
+                              <span>{dish.cook_time + " " + modifyTextForNumber(dish.cook_time, 
+                              translations.recipesMinutes0, translations.recipesMinutes1, 
                               translations.recipesMinutes2, translations.recipesMinutes3)}</span>
                             )
                           }

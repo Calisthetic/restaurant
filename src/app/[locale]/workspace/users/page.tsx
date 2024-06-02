@@ -8,16 +8,22 @@ export default function Workspace() {
   const translations:UsersWorkspaceTranslations = {
     usersTitle: t("users-title"),
     usersError: t("users-error"),
-    usersZero: t("users-zero")
+    usersZero: t("users-zero"),
+    usersDataName:t("users-data-name"),
+    usersDataEmail:t("users-data-email"),
+    usersDataLogin:t("users-data-login"),
+    usersDataPassword:t("users-data-password"),
+    usersDataRole:t("users-data-role"),
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),
+    wrongAuth: t("wrong-auth"),
     toAuth: t("to-auth")
   }
   
   return (
     <main className='flex flex-col items-center'>
-      <Suspense fallback={<div>Loading... </div>}>
+      <Suspense fallback={<div></div>}>
         <UsersWorkspace translations={translations} noAuth={noAuth}></UsersWorkspace>
       </Suspense>
     </main>

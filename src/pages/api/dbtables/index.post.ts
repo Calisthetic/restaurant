@@ -35,7 +35,7 @@ export default async function PostTables(
       "user_name" varchar(63) NOT NULL,
       "user_phone" varchar(30) NOT NULL,
       "people_count" int NOT NULL DEFAULT 1,
-      "reserve_at" timestamp NOT NULL,
+      "reserve_at" TIMESTAMP WITH TIME ZONE NOT NULL,
       "message" text,
       "user_id" int,
       "table_id" int NOT NULL

@@ -13,12 +13,13 @@ export default function Workspace({params}:{ params: { id: string }}) {
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),
+    wrongAuth: t("wrong-auth"),
     toAuth: t("to-auth")
   }
   
   return (
     <main className='flex flex-col items-center'>
-      <Suspense fallback={<div>Loading... </div>}>
+      <Suspense fallback={<div></div>}>
         <RecipeWorkspace translations={recipesTranslations} noAuth={noAuth} dishId={params.id}></RecipeWorkspace>
       </Suspense>
     </main>

@@ -8,16 +8,23 @@ export default function Workspace() {
   const translations:ReservesWorkspaceTranslations = {
     reservesTitle: t("reserves-title"),
     reservesError: t("reserves-error"),
-    reservesZero: t("reserves-zero")
+    reservesZero: t("reserves-zero"),
+    reservesDataName: t("reserves-data-name"),
+    reservesDataPhone: t("reserves-data-phone"),
+    reservesDataDatetime: t("reserves-data-datetime"),
+    reservesDataMessage: t("reserves-data-message"),
+    reservesDataPeople: t("reserves-data-people"),
+    reservesDataTableName: t("reserves-data-table-name"),
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),
+    wrongAuth: t("wrong-auth"),
     toAuth: t("to-auth")
   }
   
   return (
     <main className='flex flex-col items-center'>
-      <Suspense fallback={<div>Loading... </div>}>
+      <Suspense fallback={<div></div>}>
         <ReservesWorkspace translations={translations} noAuth={noAuth}></ReservesWorkspace>
       </Suspense>
     </main>
