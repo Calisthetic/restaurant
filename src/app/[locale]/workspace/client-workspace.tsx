@@ -6,7 +6,8 @@ import { useEffect, useState } from "react"
 import NoAuthWorkspace, { NoAuthWorkspaceTranslations } from "../../../components/no-auth"
 
 export default function ClientWorkspace({noAuth}:{noAuth:NoAuthWorkspaceTranslations}) {
-  const [isAuth, setIsAuth] = useState(true)
+  const [isAuth, setIsAuth] = useState<boolean>(true)
+  const [hasAuth, setHasAuth] = useState<boolean>(false)
   const localActive = useLocale()
   useEffect(() => {
     const role = localStorage.getItem("role-id")
@@ -19,9 +20,10 @@ export default function ClientWorkspace({noAuth}:{noAuth:NoAuthWorkspaceTranslat
     } else {
       setIsAuth(false)
     }
+    setHasAuth(role !== null)
   }, [])
 
   return isAuth ? (<div></div>) : (
-    <NoAuthWorkspace translations={noAuth}></NoAuthWorkspace>
+    <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   )
 }
