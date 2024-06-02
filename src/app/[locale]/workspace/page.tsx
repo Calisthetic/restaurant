@@ -6,6 +6,7 @@ export default function Workspace() {
   const t = useTranslations("workspace")
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),
+    wrongAuth: t("wrong-auth"),
     toAuth: t("to-auth")
   }
 
