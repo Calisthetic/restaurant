@@ -4,11 +4,15 @@ import gallery1 from '../../../assets/gallery1.jpg'
 import gallery2 from '../../../assets/gallery2.jpg'
 import gallery3 from '../../../assets/gallery3.jpg'
 import gallery4 from '../../../assets/gallery4.jpg'
+import Footer from '@/components/footer';
+import Header from '@/components/header/header';
 
 export default function Gallery() {
   const t = useTranslations('gallery');
 
   return (
+    <>
+    <Header></Header>
     <main className='flex flex-col items-center'>
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center my-16 text-xl sm:text-3xl lg:text-4xl font-bold italic font-minion'>{t("title")}</h1>
@@ -36,5 +40,7 @@ export default function Gallery() {
         </div>
       </div>
     </main>
+    <Footer></Footer>
+    </>
   );
 }

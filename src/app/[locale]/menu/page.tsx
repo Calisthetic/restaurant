@@ -2,6 +2,8 @@ import { getLocale, getTranslations } from "next-intl/server"
 import style from "./page.module.css"
 import { Suspense } from "react";
 import TranslateAsync from "@/components/translate-async";
+import Header from "@/components/header/header";
+import Footer from "@/components/footer";
 
 type MenuCategory = {
   id: number,
@@ -35,6 +37,8 @@ export default async function Menu() {
     const menu: MenuCategory[] = await getMenu();
     
     return (
+    <>
+    <Header></Header>
     <main className='flex flex-col items-center'>
       <div className='lg:max-w-4xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{t("title")}</h1>
@@ -75,9 +79,17 @@ export default async function Menu() {
         </div>
       </div>
     </main>
+    <Footer></Footer>
+    </>
     );
   } catch (error) {
     console.error("Failed to load menu:", error);
-    return <h1 className='text-center my-16 text-xl sm:text-3xl lg:text-4xl font-bold font-minion'>{t("error")}</h1>;
+    return (
+      <>
+        <Header></Header>
+          <h1 className='text-center my-16 text-xl sm:text-3xl lg:text-4xl font-bold font-minion'>{t("error")}</h1>
+        <Footer></Footer>
+      </>
+    );
   }
 }

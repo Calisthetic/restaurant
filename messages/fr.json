@@ -1,12 +1,12 @@
 {
   "data": {
-    "restaurant": "Restaurant",
+    "restaurant": "Smith",
     "phone": "+7(982)487-37-95",
     "email": "yarik.malugin2004@mail.ru",
     "adress": "Perm, rue Popova 101"
   },
   "header": {
-    "title": "Restaurant",
+    "title": "Smith",
     "description": "Complété par l'étudiant 20SPI4",
     "menu": "Menu",
     "gallery": "Galerie",
@@ -22,7 +22,7 @@
     "section-5-1": "Complété par l'étudiant 20SPI4"
   },
   "main": {
-    "title": "Le Catering",
+    "title": "Smith",
     "about-title": "À propos du restaurant",
     "about-subtitle": "Traditions depuis 1889",
     "about-description-1": "L'établissement de restauration a été fondé à Perm par M. Smith en 1992 pour l'aider à devenir le meilleur dans le domaine de la nutrition et également pour améliorer ses qualifications dans le domaine de la nutrition, notamment dans les domaines de la santé, de la santé et des services sociaux. Nous faisons de notre mieux pour minimiser les conséquences pouvant découler de nos efforts. Cela peut conduire à la censure, ou à la volupté, mais pas à la mort, mais à la disparition de la surface de la terre. Nous utilisons uniquement des ingrédients frais.",
@@ -67,6 +67,7 @@
     "no-auth": "Il semble que vous n'êtes pas connecté",
     "wrong-auth": "Vous n'avez pas la permission d'accéder à cette page. Peut-être utilisez-vous un compte?",
     "to-auth": "Entrer",
+    "button-profile": "Retour au profil",
 
     "users-title": "Employés",
     "users-error": "Impossible d'obtenir la liste des employés...",
@@ -110,6 +111,13 @@
     "recipe-ingredients": "Ingrédients",
     "recipe-steps": "Recette",
     "recipe-back": "Au menu",
-    "recipe-error": "Échec du chargement de la recette..."
+    "recipe-error": "Échec du chargement de la recette...",
+
+    "profile-error": "Échec du chargement du profil",
+    "profile-button-vacancy": "Prendre des vacances",
+    "profile-button-signout": "Sortir",
+    "profile-button-users": "Utilisateurs",
+    "profile-button-recipes": "Recettes",
+    "profile-button-reserves": "Tables réservées"
   }
 }

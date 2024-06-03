@@ -10,6 +10,7 @@ import Loading from "@/components/loading"
 import modifyTextForNumber from "@/utils/modifyText"
 
 export type RecipesWorkspaceTranslations = {
+  toProfile:string
   recipesTitle:string
   recipesError:string
   recipesZero:string
@@ -70,7 +71,7 @@ const RecipesWorkspace = (({translations, noAuth}
   const [hasAuth, setHasAuth] = useState<boolean>(false)
   useEffect(() => {
     const role = localStorage.getItem("role-id")
-    setIsAuth(role === "2")
+    setIsAuth(role === "2" || role === "1")
     setHasAuth(role !== null)
   }, [])
 
@@ -121,7 +122,7 @@ const RecipesWorkspace = (({translations, noAuth}
                           translations.recipesIngredients2, translations.recipesIngredients3)}</span>
                         </div>
                         <div className="flex flex-nowrap whitespace-nowrap gap-2">
-                          <svg enable-background="new 0 0 24 24" className="w-4 h-4" version="1.1" 
+                          <svg enableBackground="new 0 0 24 24" className="w-4 h-4" version="1.1" 
                           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g>
                             <path d="M0,23c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1v-1H0V23z"/>
                             <path d="M22,20h2c0-6.3-4.8-11.4-11-11.9V7h1c0.6,0,1-0.4,1-1s-0.4-1-1-1h-4C9.4,5,9,5.4,9,6s0.4,1,
@@ -173,6 +174,12 @@ const RecipesWorkspace = (({translations, noAuth}
               </div>
             </div>
           ))}
+          <div className="w-full justify-center flex">
+            <Link href={"/" + localActive + "/workspace/profile"} 
+            className="font-semibold text-foreground-primary transition-colors
+            border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+            rounded-lg text-sm px-4 py-2 mt-8 text-center">{translations.toProfile}</Link>
+          </div>
         </div>
       </div>
     ) : (

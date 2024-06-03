@@ -4,9 +4,11 @@ import Loading from "@/components/loading"
 import NoAuthWorkspace, { NoAuthWorkspaceTranslations } from "@/components/no-auth"
 import Translate from "@/components/translate"
 import { useLocale } from "next-intl"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export type UsersWorkspaceTranslations = {
+  toProfile:string
   usersTitle:string
   usersError:string
   usersZero:string
@@ -96,6 +98,12 @@ export default function UsersWorkspace({translations, noAuth}:{translations:User
               }
             </tbody>
           </table>
+          <div className="w-full justify-center flex">
+            <Link href={"/" + localActive + "/workspace/profile"} 
+            className="font-semibold text-foreground-primary transition-colors
+            border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+            rounded-lg text-sm px-4 py-2 mt-8 text-center">{translations.toProfile}</Link>
+          </div>
         </div>
       </div>
     ) : (

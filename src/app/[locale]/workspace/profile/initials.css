@@ -1,0 +1,12 @@
+.initials > * {
+  visibility: hidden;
+  font-family: sans-serif;
+  width: 28px;
+}
+.initials > *:not(::first-letter) {
+  display: none;
+}
+.initials > *::first-letter {
+  text-transform: uppercase;
+  visibility: visible;
+}

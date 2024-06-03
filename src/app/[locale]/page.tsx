@@ -5,6 +5,8 @@ import ContactForm, { ContactFormTranslations, Table } from './contact-form';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getLocale, getTranslations } from 'next-intl/server';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer';
 
 async function getTables(error:string):Promise<Table[]> {
   const res = await fetch(process.env.API_URL + "/api/tables", {
@@ -38,6 +40,8 @@ export default async function Home() {
   }
 
   return (
+    <>
+    <Header></Header>
     <main>
       <section className={style.section1}>
         <h1 className={style.header1}>{t('title')}</h1>
@@ -112,5 +116,7 @@ export default async function Home() {
         </div>
       </section>
     </main>
+    <Footer></Footer>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import { NoAuthWorkspaceTranslations } from "@/components/no-auth";
 export default function Workspace() {
   const t = useTranslations("workspace")
   const recipesTranslations:RecipesWorkspaceTranslations = {
+    toProfile: t("button-profile"),
     recipesError: t("recipes-error"),
     recipesTitle: t("recipes-title"),
     recipesZero: t("recipes-zero"),

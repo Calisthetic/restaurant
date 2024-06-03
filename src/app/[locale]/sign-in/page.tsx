@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 import SignInForm, { SignInTranslationsProps } from "./sign-in-form";
+import Footer from "@/components/footer";
+import Header from "@/components/header/header";
 
 export default function SignIn(props:any) {
   const t = useTranslations("sign-in")
@@ -12,6 +14,8 @@ export default function SignIn(props:any) {
     buttonToWorkspace: t("button-to-workspace")
   }
   return (
+    <>
+    <Header></Header>
     <main className='flex flex-col items-center'>
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
         <div className='my-10 md:my-20 flex flex-col items-center'>
@@ -20,5 +24,7 @@ export default function SignIn(props:any) {
         </div>
       </div>
     </main>
+    <Footer></Footer>
+    </>
   )
 }

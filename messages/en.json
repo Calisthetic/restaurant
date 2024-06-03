@@ -1,12 +1,12 @@
 {
   "data": {
-    "restaurant": "Restaurant",
+    "restaurant": "Smith",
     "phone": "+7(982)487-37-95",
     "email": "yarik.malugin2004@mail.ru",
     "adress": "Perm, Popova st. 101"
   },
   "header": {
-    "title": "Restaurant",
+    "title": "Smith",
     "description": "Powered by student 20SPI4",
     "menu": "Menu",
     "gallery": "Gallery",
@@ -22,7 +22,7 @@
     "section-5-1": "Powered by student 20SPI4"
   },
   "main": {
-    "title": "Le Catering",
+    "title": "Smith",
     "about-title": "About restaurant",
     "about-subtitle": "Traditions since 1889",
     "about-description-1": "The catering establishment was founded in Perm by Mr Smith in 1992 to help him become the best in the field of nutrition and also to improve his qualifications in the field of nutrition, particularly in the fields of health, health and social care. We do our best to minimize the consequences that may arise from our efforts. This can lead to censure, or it can lead to voluptuousness, but not to death, but to disappearance from the face of the earth. We use only fresh ingredients.",
@@ -67,6 +67,7 @@
     "no-auth": "It looks like you are not logged in",
     "wrong-auth": "You do not have permission to access this page. Perhaps you are using an account?",
     "to-auth": "Log in",
+    "button-profile": "Back to profile",
 
     "users-title": "Employees",
     "users-error": "Failed to get list of employees...",
@@ -111,6 +112,13 @@
     "recipe-steps": "Steps",
     "recipe-back": "Back to menu",
     "recipe-error": "Failed to load recipe...",
-    "reserve-select": "Choose a table"
+    "reserve-select": "Choose a table",
+
+    "profile-error": "Failed to load profile",
+    "profile-button-vacancy": "Take a vacation",
+    "profile-button-signout": "Sign out",
+    "profile-button-users": "Users",
+    "profile-button-recipes": "Recipes",
+    "profile-button-reserves": "Reserved tables"
   }
 }

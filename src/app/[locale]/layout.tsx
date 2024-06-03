@@ -32,33 +32,12 @@ export default function RootLayout({
   children,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
-  const t = useTranslations('header');
-  const localActive = useLocale();
-  
-  const paths = [
-    {
-      path: "/" + localActive + "/menu",
-      name: "menu",
-    },
-    {
-      path: "/" + localActive + "/gallery",
-      name: "gallery",
-    },
-    {
-      path: "/" + localActive + "/sign-in",
-      name: "staff",
-    },
-  ]
   return (
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider>
-          <Header localActive={localActive} restaurant={useTranslations("data")("restaurant")}>
-            {paths.map((item, index) => (<Link key={index} href={item.path}>{t(item.name)}</Link>))}
-          </Header>
+          {children}
         </NextIntlClientProvider>
-        {children}
-        <Footer></Footer>
       </body>
     </html>
   );

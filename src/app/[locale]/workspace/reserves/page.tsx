@@ -6,6 +6,7 @@ import { NoAuthWorkspaceTranslations } from "@/components/no-auth";
 export default function Workspace() {
   const t = useTranslations("workspace")
   const translations:ReservesWorkspaceTranslations = {
+    toProfile: t("button-profile"),
     reservesTitle: t("reserves-title"),
     reservesError: t("reserves-error"),
     reservesZero: t("reserves-zero"),
