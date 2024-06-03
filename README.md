@@ -1,4 +1,4 @@
-# Restaurant
+# Restaurant app
 
 ## О проекте
 
@@ -6,7 +6,7 @@
 Диаграмма базы данных [здесь](https://dbdiagram.io/d/restaurant-66561d06b65d933879e8709f).
 Размещён на хостинге при помощи [Velcel](https://vercel.com).
 База данных [Postgres](https://vercel.com/docs/storage/vercel-postgres/) расположена на Vercel.
-Перевод динамического контента GoodleAPI
+Перевод динамического контента GoodleAPI.
 
 ### Используемые библиотеки
 
@@ -16,6 +16,7 @@
 - [Autoprefixer](https://www.npmjs.com/package/autoprefixer) - плагин для CSS, позволяет НЕ прописывать префиксы для корректного отображения на различных браузерах
 - [next-intl](next-intl-docs.vercel.app/docs/getting-started) - поддержка различных языков
 - [react-input-mask](https://www.npmjs.com/package/react-input-mask) - маска для ввода номера телефона
+- [framer-motion](https://www.framer.com/motion/introduction/) - анимации
 
 ## Запуск проекта
 
@@ -60,6 +61,7 @@ npm i autoprefixer
 npm install next-intl
 npm i react-input-mask
 npm i --save-dev @types/react-input-mask
+npm install framer-motion
 ```
 
 ### Использованные ресурсы
