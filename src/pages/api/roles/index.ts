@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import GetUsers from "./index.get";
-import PostUsers from "./index.post";
+import GetTables from './index.get';
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,10 +7,7 @@ export default async function handler(
 ) {
   switch (req.method) {
     case 'GET':
-      GetUsers(req, res)
-      break;
-    case 'POST':
-      PostUsers(req, res)
+      GetTables(req, res)
       break;
     default:
       // Invalid method

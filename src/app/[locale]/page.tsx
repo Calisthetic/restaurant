@@ -37,6 +37,7 @@ export default async function Home() {
     table: t("reserve-table"),
     sendSuccess:t("reserve-send-success"),
     sendError:t("reserve-send-error"),
+    ok:t("reserve-ok"),
   }
 
   return (

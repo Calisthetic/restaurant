@@ -41,7 +41,8 @@
     "reserve-error": "Impossible d'obtenir des tables",
     "reserve-table": "tableau",
     "reserve-send-success": "Envoyé avec succès!",
-    "reserve-send-error": "Échec de l'envoi des données, veuillez vérifier si vous les avez saisies correctement"
+    "reserve-send-error": "Échec de l'envoi des données, veuillez vérifier si vous les avez saisies correctement",
+    "reserve-ok": "OK"
   },
   "gallery": {
     "title": "Galerie photo du restaurant",
@@ -68,6 +69,8 @@
     "wrong-auth": "Vous n'avez pas la permission d'accéder à cette page. Peut-être utilisez-vous un compte?",
     "to-auth": "Entrer",
     "button-profile": "Retour au profil",
+    "button-add": "Add",
+    "button-ok": "OK",
 
     "users-title": "Employés",
     "users-error": "Impossible d'obtenir la liste des employés...",
@@ -77,6 +80,9 @@
     "users-data-login": "Se connecter",
     "users-data-password": "Mot de passe",
     "users-data-role": "Rôle",
+    "users-new": "Nouvel employé",
+    "users-select-role": "Sélectionnez un rôle",
+    "users-delete-error": "Échec de la suppression de l'utilisateur...",
 
     "reserves-title": "Tables réservées",
     "reserves-error": "Échec de l'obtention des tables réservées...",

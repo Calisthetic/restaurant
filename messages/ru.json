@@ -41,7 +41,8 @@
     "reserve-error": "Не удалось получить столы",
     "reserve-table": "стол",
     "reserve-send-success": "Успешно отправлено!",
-    "reserve-send-error": "Не удалось отправить данные, проверьте правильность ввода."
+    "reserve-send-error": "Не удалось отправить данные, проверьте правильность ввода.",
+    "reserve-ok": "OK"
   },
   "gallery": {
     "title": "Фотогалерея ресторана",
@@ -68,6 +69,8 @@
     "wrong-auth": "У вас нет прав доступа к данной странице. Возможно Вы используете аккаунт?",
     "to-auth": "Войти",
     "button-profile": "В профиль",
+    "button-add": "Добавить",
+    "button-ok": "OK",
 
     "users-title": "Сотрудники",
     "users-error": "Не удалось получить список сотрудников...",
@@ -77,6 +80,9 @@
     "users-data-login": "Логин",
     "users-data-password": "Пароль",
     "users-data-role": "Роль",
+    "users-new": "Новый сотрудник",
+    "users-select-role": "Выберите роль",
+    "users-delete-error": "Не удалось удалить пользователя...",
 
     "reserves-title": "Забронированные столы",
     "reserves-error": "Не удалось получить забронированные столы...",
@@ -118,6 +124,8 @@
     "profile-button-signout": "Выйти",
     "profile-button-users": "Пользователи",
     "profile-button-recipes": "Рецепты",
-    "profile-button-reserves": "Забронированные столы"
+    "profile-button-reserves": "Забронированные столы",
+
+    "vacancy-error": "Не удалось получить данные пользователя..."
   }
 }

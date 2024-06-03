@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import GetUser from './index.get';
+import DeleteUsers from "./index.delete";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,6 +9,9 @@ export default async function handler(
   switch (req.method) {
     case 'GET':
       GetUser(req, res)
+      break;
+    case 'DELETE':
+      DeleteUsers(req, res)
       break;
     default:
       // Invalid method

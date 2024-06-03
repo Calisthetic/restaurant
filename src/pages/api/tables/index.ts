@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import GetTables from './index.get';
+import GetRoles from './index.get';
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   switch (req.method) {
     case 'GET':
-      GetTables(req, res)
+      GetRoles(req, res)
       break;
     default:
       // Invalid method

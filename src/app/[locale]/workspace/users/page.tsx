@@ -1,12 +1,25 @@
-import { useTranslations } from "next-intl";
 import { Suspense } from "react";
-import UsersWorkspace, { UsersWorkspaceTranslations } from "./users";
+import UsersWorkspace, { Role, UsersWorkspaceTranslations } from "./users";
 import { NoAuthWorkspaceTranslations } from "@/components/no-auth";
+import { getTranslations } from "next-intl/server";
 
-export default function Workspace() {
-  const t = useTranslations("workspace")
+async function getRoles(): Promise<Role[]> {
+  const res = await fetch(process.env.API_URL + "/api/roles", {
+    method: "GET"
+  });
+  if (!res.ok) {
+    return []
+  }
+  const data:Role[] = await res.json();
+  return data
+}
+
+export default async function Workspace() {
+  const t = await getTranslations("workspace")
   const translations:UsersWorkspaceTranslations = {
     toProfile: t("button-profile"),
+    buttonAdd: t("button-add"),
+    buttonOk: t("button-ok"),
     usersTitle: t("users-title"),
     usersError: t("users-error"),
     usersZero: t("users-zero"),
@@ -15,6 +28,10 @@ export default function Workspace() {
     usersDataLogin:t("users-data-login"),
     usersDataPassword:t("users-data-password"),
     usersDataRole:t("users-data-role"),
+    
+    usersNew:t("users-new"),
+    usersSelectRole:t("users-select-role"),
+    usersDeleteError:t("users-delete-error"),
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),
@@ -22,10 +39,12 @@ export default function Workspace() {
     toAuth: t("to-auth")
   }
   
+  const roles = await getRoles()
+
   return (
     <main className='flex flex-col items-center'>
       <Suspense fallback={<div></div>}>
-        <UsersWorkspace translations={translations} noAuth={noAuth}></UsersWorkspace>
+        <UsersWorkspace translations={translations} noAuth={noAuth} roles={roles}></UsersWorkspace>
       </Suspense>
     </main>
   )

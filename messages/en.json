@@ -41,7 +41,8 @@
     "reserve-error": "Couldn't get tables",
     "reserve-table": "table",
     "reserve-send-success": "Successfully sent!",
-    "reserve-send-error": "Failed to send data, please check if you entered it correctly"
+    "reserve-send-error": "Failed to send data, please check if you entered it correctly",
+    "reserve-ok": "OK"
   },
   "gallery": {
     "title": "Photo gallery of the restaurant",
@@ -68,6 +69,8 @@
     "wrong-auth": "You do not have permission to access this page. Perhaps you are using an account?",
     "to-auth": "Log in",
     "button-profile": "Back to profile",
+    "button-add": "Ajouter",
+    "button-ok": "OK",
 
     "users-title": "Employees",
     "users-error": "Failed to get list of employees...",
@@ -77,6 +80,9 @@
     "users-data-login": "Login",
     "users-data-password": "Password",
     "users-data-role": "Role",
+    "users-new": "New employee",
+    "users-select-role": "Select role",
+    "users-delete-error": "Failed to get roles...",
 
     "reserves-title": "Reserved tables",
     "reserves-error": "Failed to get reserved tables...",

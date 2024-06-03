@@ -21,7 +21,7 @@ type Profile = {
   "id": number,
   "first_name": string,
   "second_name": string,
-  "third_name": string,
+  "third_name"?: string,
   "email": string,
   "login": string,
   "password": string,

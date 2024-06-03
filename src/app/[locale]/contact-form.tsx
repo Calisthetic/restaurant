@@ -1,6 +1,7 @@
 "use client"
 
-import { useRef } from 'react';
+import Modal from '@/components/modal';
+import { useRef, useState } from 'react';
 import InputMask from 'react-input-mask';
 
 export type ContactFormTranslations = {
@@ -12,6 +13,7 @@ export type ContactFormTranslations = {
   table: string
   sendSuccess:string
   sendError:string
+  ok:string
 }
 export type Table = {
   id: number
@@ -27,6 +29,9 @@ export default function ContactForm({translations, selectOptions}
   const messageRef = useRef<HTMLTextAreaElement>(null)
   const datetimeRef = useRef<HTMLInputElement>(null)
   const tableRef = useRef<HTMLSelectElement>(null)
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [isSendSuccess, setIsSendSuccess] = useState<boolean>(false)
 
   const handleSubmit = (event:any) => {
     event.preventDefault()
@@ -52,8 +57,10 @@ export default function ContactForm({translations, selectOptions}
         throw new Error()
       }
     })
-    .then(() => alert("success"))
-    .catch(() => alert("Wrong data format"))
+    .then(() => setIsSendSuccess(true))
+    .catch(() => setIsSendSuccess(false))
+
+    setIsModalOpen(true)
   }
 
   function getCurrentDate() {
@@ -65,11 +72,12 @@ export default function ContactForm({translations, selectOptions}
   }
   
   return (
+    <>
     <form onSubmit={handleSubmit} className="flex flex-col mt-8 gap-y-2 items-center">
       <input ref={nameRef} required className="outline-none w-full p-1 border-border rounded border-b-2" type="text" name="name" placeholder={translations.name}></input>
       <InputMask onChange={e => {phoneRef.current = e.target.value}} required placeholder='+7 (___) ___-__-__' className="outline-none w-full p-1 border-border rounded border-b-2" mask="+7 (999) 999-99-99" />
       <input ref={peoplesRef} required className="outline-none w-full p-1 border-border rounded border-b-2" type="number" name="peoples" placeholder={translations.people}></input>
-      <select ref={tableRef} defaultValue="" id="countries" className="outline-none w-full border-border rounded border-b-2 *:text-foreground-primary block py-1">
+      <select required ref={tableRef} defaultValue="" id="countries" className="outline-none w-full border-border rounded border-b-2 *:text-foreground-primary block py-1">
         <option value="" className='text-[#888]' hidden>{translations.select}</option>
         {
           selectOptions.map((item:Table) => (
@@ -87,5 +95,15 @@ export default function ContactForm({translations, selectOptions}
         </div>
       </button>
     </form>
+    <Modal isOpen={isModalOpen} onClose={() => {setIsModalOpen(false)}}>
+      <div className='py-3 px-6 rounded-lg bg-background-primary relative sm:w-min flex flex-col items-center'>
+        <h1 className=' text-center text-xl font-medium sm:whitespace-nowrap whitespace-normal'>{isSendSuccess ? translations.sendSuccess : translations.sendError}</h1>
+        <button onClick={() => setIsModalOpen(false)}
+        className="font-semibold text-foreground-primary transition-colors
+        border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+        rounded-lg text-sm px-10 py-2 mt-4 text-center">{translations.ok}</button>
+      </div>
+    </Modal>
+    </>
   )
 }
