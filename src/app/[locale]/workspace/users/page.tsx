@@ -24,6 +24,9 @@ export default async function Workspace() {
     usersError: t("users-error"),
     usersZero: t("users-zero"),
     usersDataName:t("users-data-name"),
+    usersDataFirstName:t("users-data-first-name"),
+    usersDataSecondName:t("users-data-second-name"),
+    usersDataThirdName:t("users-data-third-name"),
     usersDataEmail:t("users-data-email"),
     usersDataLogin:t("users-data-login"),
     usersDataPassword:t("users-data-password"),
@@ -31,7 +34,12 @@ export default async function Workspace() {
     
     usersNew:t("users-new"),
     usersSelectRole:t("users-select-role"),
+    usersAddError:t("users-add-error"),
+    usersAddUnable:t("users-add-unable"),
     usersDeleteError:t("users-delete-error"),
+    usersDeleteQuestion:t("users-delete-question"),
+    usersDeleteConfirm:t("users-delete-confirm"),
+    usersDeleteCancel:t("users-delete-cancel"),
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),

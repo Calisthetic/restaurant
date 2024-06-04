@@ -6,7 +6,7 @@ import NoAuthWorkspace, { NoAuthWorkspaceTranslations } from "@/components/no-au
 import Translate from "@/components/translate"
 import { useLocale } from "next-intl"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export type UsersWorkspaceTranslations = {
   toProfile:string
@@ -16,6 +16,9 @@ export type UsersWorkspaceTranslations = {
   usersError:string
   usersZero:string
   usersDataName:string
+  usersDataFirstName:string
+  usersDataSecondName:string
+  usersDataThirdName:string
   usersDataEmail:string
   usersDataLogin:string
   usersDataPassword:string
@@ -23,7 +26,12 @@ export type UsersWorkspaceTranslations = {
 
   usersNew:string
   usersSelectRole:string
+  usersAddError:string
+  usersAddUnable:string
   usersDeleteError:string
+  usersDeleteQuestion:string
+  usersDeleteConfirm:string
+  usersDeleteCancel:string
 }
 export type Role = {
   id:number,
@@ -72,7 +80,10 @@ export default function UsersWorkspace({translations, noAuth, roles}
   }, [])
 
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false)
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState<boolean>(false)
+  const [isDeleteErrorModalOpen, setIsDeleteErrorModalOpen] = useState<boolean>(false)
+  const [isAddErrorModalOpen, setIsAddErrorModalOpen] = useState<boolean>(false)
+
+  const [selectedUserId, setSelectedUserId] = useState<number>(0)
 
   async function handleDelete(id:number) {
     await fetch("/api/users/" + id, {
@@ -80,9 +91,49 @@ export default function UsersWorkspace({translations, noAuth, roles}
     }).then(res => {
       if (res.ok) {
         setIsUpdateUsers(x => !x)
+        setSelectedUserId(0)
       } else {
-
+        setIsDeleteErrorModalOpen(true)
       }
+    })
+  }
+
+  const newUserFirstNameRef = useRef<HTMLInputElement>(null)
+  const newUserSecondNameRef = useRef<HTMLInputElement>(null)
+  const newUserThirdNameRef = useRef<HTMLInputElement>(null)
+  const newUserEmailRef = useRef<HTMLInputElement>(null)
+  const newUserLoginRef = useRef<HTMLInputElement>(null)
+  const newUserPasswordRef = useRef<HTMLInputElement>(null)
+  const newUserRoleIdRef = useRef<HTMLSelectElement>(null)
+
+  async function handleSubmit(event:any) {
+    event.preventDefault()
+
+    await fetch("/api/users", {
+      method: "POST",
+      body: JSON.stringify({
+        first_name: newUserFirstNameRef.current?.value,
+        second_name: newUserSecondNameRef.current?.value,
+        third_name: newUserThirdNameRef.current?.value,
+        email: newUserEmailRef.current?.value,
+        login: newUserLoginRef.current?.value,
+        password: newUserPasswordRef.current?.value,
+        role_id: newUserRoleIdRef.current?.value
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+    .then(res => {
+      if (res.ok) {
+        setIsAddModalOpen(false)
+        setIsUpdateUsers(x => !x)
+      } else {
+        throw new Error()
+      }
+    })
+    .catch(() => {
+      setIsDeleteErrorModalOpen
     })
   }
 
@@ -90,7 +141,7 @@ export default function UsersWorkspace({translations, noAuth, roles}
     <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   ) :  isAuth ? (
     users === undefined ? (
-      <Loading></Loading>
+      <Loading className="m-20"></Loading>
     ) : users ? (
       <>
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
@@ -121,8 +172,8 @@ export default function UsersWorkspace({translations, noAuth, roles}
                     <td className="px-1 sm:px-2 md:px-3 py-2">{item.email}</td>
                     <td className="px-1 sm:px-2 md:px-3 py-2">{item.login}</td>
                     <td className="px-1 sm:px-2 md:px-3 py-2">{item.password}</td>
-                    <td className="px-1 py-2">
-                      <button onClick={() => handleDelete(item.id)}>
+                    <td className="px-1 py-2 flex justify-center">
+                      <button onClick={() => setSelectedUserId(item.id)}>
                         <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" 
                         className="w-5 h-5 hover:fill-red-500 transition-all">
                           <path d="M432 80h-82.38l-34-56.75C306.1 8.827 291.4 0 274.6 0H173.4C156.6 0 141 8.827 132.4 
@@ -160,14 +211,26 @@ export default function UsersWorkspace({translations, noAuth, roles}
       
       <Modal isOpen={isAddModalOpen} onClose={() => {setIsAddModalOpen(false)}}>
         <div className='py-3 px-6 rounded-lg bg-background-primary relative sm:w-min flex min-w-72 flex-col items-center'>
-          <h1 className=' text-center text-xl font-medium whitespace-nowrap'>{translations.usersNew}</h1>
+          <h1 className=' text-center text-xl font-medium whitespace-nowrap mb-2'>
+            {roles.length > 0 ? translations.usersNew : translations.usersAddUnable}</h1>
           {roles.length > 0 ? (
-            <form>
-              <input required className="outline-none w-full p-1 border-border rounded border-b-2" type="text" name="name" placeholder={translations.usersDataName}></input>
-              <input required className="outline-none w-full p-1 border-border rounded border-b-2" type="text" name="name" placeholder={translations.usersDataEmail}></input>
-              <input required className="outline-none w-full p-1 border-border rounded border-b-2" type="text" name="name" placeholder={translations.usersDataLogin}></input>
-              <input required className="outline-none w-full p-1 border-border rounded border-b-2" type="text" name="name" placeholder={translations.usersDataPassword}></input>
-              <select defaultValue="" id="countries" className="outline-none w-full border-border rounded border-b-2 *:text-foreground-primary block py-1">
+            <form className="flex flex-col w-full gap-y-2 items-center" onSubmit={handleSubmit}>
+              <input required className="outline-none w-full p-1 border-border rounded border-b-2" 
+              type="text" name="first-name" placeholder={translations.usersDataFirstName} ref={newUserFirstNameRef}></input>
+              <input required className="outline-none w-full p-1 border-border rounded border-b-2" 
+              type="text" name="second-name" placeholder={translations.usersDataSecondName} ref={newUserSecondNameRef}></input>
+              {localActive === "ru" && (
+                <input required className="outline-none w-full p-1 border-border rounded border-b-2" 
+                type="text" name="third-name" placeholder={translations.usersDataThirdName} ref={newUserThirdNameRef}></input>
+              )}
+              <input className="outline-none w-full p-1 border-border rounded border-b-2" 
+              type="text" name="email" placeholder={translations.usersDataEmail} ref={newUserEmailRef}></input>
+              <input className="outline-none w-full p-1 border-border rounded border-b-2" 
+              type="text" name="login" placeholder={translations.usersDataLogin} ref={newUserLoginRef}></input>
+              <input required className="outline-none w-full p-1 border-border rounded border-b-2" 
+              type="text" name="password" placeholder={translations.usersDataPassword} ref={newUserPasswordRef}></input>
+              <select defaultValue="" id="countries" ref={newUserRoleIdRef}
+              className="outline-none w-full border-border rounded border-b-2 *:text-foreground-primary block py-1">
                 <option value="" className='text-[#888]' hidden>{translations.usersSelectRole}</option>
                 {
                   roles.map((item:Role) => (
@@ -177,22 +240,53 @@ export default function UsersWorkspace({translations, noAuth, roles}
                   ))
                 }
               </select>
+              <button type="submit"
+              className="font-semibold text-foreground-primary transition-colors
+              border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+              rounded-lg text-sm px-10 py-2 mt-4 text-center">{translations.buttonAdd}</button>
             </form>
-          ) : null}
-          <button type="submit"
-          className="font-semibold text-foreground-primary transition-colors
-          border border-border hover:border-foreground-accent hover:bg-foreground-accent 
-          rounded-lg text-sm px-10 py-2 mt-4 text-center">{roles.length > 0 ? translations.buttonAdd : translations.buttonOk}</button>
+          ) : (
+            <button type="submit"
+            className="font-semibold text-foreground-primary transition-colors
+            border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+            rounded-lg text-sm px-10 py-2 mt-4 text-center">{roles.length > 0 ? translations.buttonAdd : translations.buttonOk}</button>
+          )}
         </div>
       </Modal>
       
-      <Modal isOpen={isErrorModalOpen} onClose={() => {setIsErrorModalOpen(false)}}>
+      <Modal isOpen={isDeleteErrorModalOpen} onClose={() => {setIsDeleteErrorModalOpen(false)}}>
         <div className='py-3 px-6 rounded-lg bg-background-primary relative sm:w-min flex flex-col items-center'>
           <h1 className=' text-center text-xl font-medium sm:whitespace-nowrap whitespace-normal'>{translations.usersDeleteError}</h1>
-          <button onClick={() => setIsErrorModalOpen(false)}
+          <button onClick={() => setIsDeleteErrorModalOpen(false)}
           className="font-semibold text-foreground-primary transition-colors
           border border-border hover:border-foreground-accent hover:bg-foreground-accent 
           rounded-lg text-sm px-10 py-2 mt-4 text-center">{translations.buttonOk}</button>
+        </div>
+      </Modal>
+      
+      <Modal isOpen={isAddErrorModalOpen} onClose={() => {setIsAddErrorModalOpen(false)}}>
+        <div className='py-3 px-6 rounded-lg bg-background-primary relative sm:w-min flex flex-col items-center'>
+          <h1 className=' text-center text-xl font-medium sm:whitespace-nowrap whitespace-normal'>{translations.usersAddError}</h1>
+          <button onClick={() => setIsAddErrorModalOpen(false)}
+          className="font-semibold text-foreground-primary transition-colors
+          border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+          rounded-lg text-sm px-10 py-2 mt-4 text-center">{translations.buttonOk}</button>
+        </div>
+      </Modal>
+      
+      <Modal isOpen={selectedUserId !== 0} onClose={() => {setSelectedUserId(0)}}>
+        <div className='py-3 px-6 rounded-lg bg-background-primary relative sm:w-min flex flex-col items-center'>
+          <h1 className=' text-center text-xl font-medium sm:whitespace-nowrap whitespace-normal'>{translations.usersDeleteQuestion}</h1>
+          <div className="flex flex-col">
+            <button onClick={() => handleDelete(selectedUserId)} 
+            className="font-semibold text-foreground-primary transition-colors
+            border border-border hover:border-rose-400 hover:bg-rose-400 
+            rounded-lg text-sm px-4 py-2 mt-4 text-center">{translations.usersDeleteConfirm}</button>
+            <button onClick={() => setSelectedUserId(0)}
+            className="font-semibold text-foreground-primary transition-colors
+            border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+            rounded-lg text-sm px-10 py-2 my-2 text-center">{translations.usersDeleteCancel}</button>
+          </div>
         </div>
       </Modal>
       </>

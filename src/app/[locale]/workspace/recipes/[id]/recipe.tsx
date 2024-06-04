@@ -67,9 +67,7 @@ const RecipeWorkspace = (({translations, noAuth, dishId}
     <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   ) :  isAuth ? 
     (recipe === undefined ? (
-      <div className="mt-20">
-        <Loading></Loading>
-      </div>
+      <Loading className="m-20"></Loading>
     ) : recipe ? (
       <div className='lg:max-w-4xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>

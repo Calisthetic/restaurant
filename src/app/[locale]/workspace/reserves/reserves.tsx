@@ -69,7 +69,7 @@ export default function ReservesWorkspace({translations, noAuth}
     <NoAuthWorkspace translations={noAuth} hasAuth={hasAuth}></NoAuthWorkspace>
   ) :  isAuth ? (
     reserves === undefined ? (
-      <Loading></Loading>
+      <Loading className="m-20"></Loading>
     ) : reserves ? (
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{translations.reservesTitle}</h1>

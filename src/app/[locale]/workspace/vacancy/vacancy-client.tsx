@@ -80,7 +80,7 @@ export default function VacancyWorkspace({translations, noAuth}
     <NoAuthWorkspace translations={noAuth} hasAuth={true}></NoAuthWorkspace>
   ) :  role ? (
     user === undefined ? (
-      <Loading></Loading>
+      <Loading className="m-20"></Loading>
     ) : user ? (
       <div className="md:max-w-3xl sm:max-w-2xl w-full">
         <div>
