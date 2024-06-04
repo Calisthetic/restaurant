@@ -6,7 +6,11 @@ import VacancyWorkspace, { VacancyTranslations } from "./vacancy-client";
 export default function Workspace() {
   const t = useTranslations("workspace")
   const translations:VacancyTranslations = {
-    vacancyError:t("vacancy-error")
+    vacancyError:t("vacancy-error"),
+    vacancyTitle:t("vacancy-title"),
+    vacancyDescription:t("vacancy-description"),
+    vacancyPreview:t("vacancy-preview"),
+    vacancyPrint:t("vacancy-print"),
   }
   const noAuth:NoAuthWorkspaceTranslations = {
     noAuth: t("no-auth"),

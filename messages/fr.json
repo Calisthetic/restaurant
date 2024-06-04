@@ -132,6 +132,12 @@
     "profile-button-signout": "Sortir",
     "profile-button-users": "Utilisateurs",
     "profile-button-recipes": "Recettes",
-    "profile-button-reserves": "Tables réservées"
+    "profile-button-reserves": "Tables réservées",
+
+    "vacancy-error": "Échec de l'obtention des données utilisateur...",
+    "vacancy-title": "Vacances",
+    "vacancy-description": "Chaque année, nous accordons à nos salariés des congés payés. Pour déposer une candidature, vous devez saisir la date de début des vacances souhaitées et imprimer la candidature:",
+    "vacancy-preview": "Aperçu:",
+    "vacancy-print": "Joint"
   }
 }

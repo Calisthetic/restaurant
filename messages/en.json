@@ -133,6 +133,12 @@
     "profile-button-signout": "Sign out",
     "profile-button-users": "Users",
     "profile-button-recipes": "Recipes",
-    "profile-button-reserves": "Reserved tables"
+    "profile-button-reserves": "Reserved tables",
+
+    "vacancy-error": "Failed to get user data...",
+    "vacancy-title": "Vacancy",
+    "vacancy-description": "Every year we provide our employees with paid leave. To submit an application, you need to enter the start date of the desired vacation and print the application:",
+    "vacancy-preview": "Preview:",
+    "vacancy-print": "Print"
   }
 }

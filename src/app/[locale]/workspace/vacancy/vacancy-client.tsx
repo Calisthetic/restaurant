@@ -1,14 +1,17 @@
 "use client"
 
 import { useLocale } from "next-intl";
-import style from "./vacancy.module.css"
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NoAuthWorkspace, { NoAuthWorkspaceTranslations } from "@/components/no-auth";
 import Loading from "@/components/loading";
 import Translate from "@/components/translate";
 
 export type VacancyTranslations = {
   vacancyError:string
+  vacancyTitle:string
+  vacancyDescription:string
+  vacancyPreview:string
+  vacancyPrint:string
 }
 type Profile = {
   "id": number,
@@ -84,8 +87,8 @@ export default function VacancyWorkspace({translations, noAuth}
     ) : user ? (
       <div className="md:max-w-3xl sm:max-w-2xl w-full">
         <div>
-          <h1 className='text-center mt-8 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>Отпуск</h1>
-          <p className="mt-6 mb-2">Каждый год мы предотавляем нашим сотрудникам оплачиваемый отпуск. Чтобы подать заявление Вам необходимо ввести дату начала желаемого отпуска и распечатать заявление:</p>
+          <h1 className='text-center mt-8 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{translations.vacancyTitle}</h1>
+          <p className="mt-6 mb-2">{translations.vacancyDescription}</p>
           <input onInput={(e:any) => {
             const dateString:string = e.target.value
             setVacancyDate(`${dateString.slice(8)}.${dateString.slice(5, -3)}.${dateString.slice(0, -6)}`)
@@ -95,7 +98,7 @@ export default function VacancyWorkspace({translations, noAuth}
           </div>
         </div>
         <div className="overflow-x-auto mt-8">
-          <p className="text-lg mb-2 text-center font-semibold">Предварительный просмотр:</p>
+          <p className="text-lg mb-2 text-center font-semibold">{translations.vacancyPreview}</p>
           <div style={{width: "16.5cm", minWidth:"16.5cm", fontSize: "14pt", fontFamily: '"Times New Roman", Times, serif'}} id="vac" 
           className="border border-border rounded-lg !w-full py-2 px-6">
             <div style={{display: "flex", justifyContent: "end", whiteSpace: 'nowrap'}}>
@@ -103,11 +106,9 @@ export default function VacancyWorkspace({translations, noAuth}
                 <div>Генеральному директору</div>
                 <div>ООО "Смит"</div>
                 <div>Иванову И.И.</div>
-                <div style={{textTransform: "lowercase", marginTop: "12px"}}>{"от " + user.role_name + (localActive === "ru" ? "а" : "")}</div>
-                <div>
-                  <Translate to={localActive} text={user.second_name + " " + user.first_name[0] + "."
-                  + (user.third_name === undefined ? "" : (user.third_name[0] + "."))}></Translate>
-                </div>
+                <div style={{textTransform: "lowercase", marginTop: "12px"}}>{"от " + user.role_name + "а"}</div>
+                <div>{user.second_name + " " + user.first_name[0] + "."
+                + (user.third_name === undefined ? "" : (user.third_name[0] + "."))}</div>
               </div>
             </div>
             <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -135,8 +136,9 @@ export default function VacancyWorkspace({translations, noAuth}
         <div className="flex justify-center mb-8">
           <button className="p-[3px] relative mt-4" onClick={handlePrint}>
             <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
-              <div className="px-8 py-2 w-fit rounded-[6px] font-semibold hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
-                {"Печать"}
+              <div className="px-8 py-2 w-fit rounded-[6px] font-semibold uppercase
+              hover:text-background-secondary bg-background-primary relative group transition duration-200 hover:bg-transparent">
+                {translations.vacancyPrint}
               </div>
             </div>
           </button>
