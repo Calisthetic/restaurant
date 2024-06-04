@@ -28,7 +28,8 @@ export default function SignInForm({translations}:{translations:SignInTranslatio
 
   useEffect(() => {
     const roleId = localStorage.getItem("role-id")
-    if (roleId) {
+    const userId = localStorage.getItem("user-id")
+    if (roleId && userId) {
       redirect(`/${localActive}/workspace/profile`)
     }
   }, [isAuthUpdate])
