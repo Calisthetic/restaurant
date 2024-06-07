@@ -6,6 +6,7 @@ import VacancyWorkspace, { VacancyTranslations } from "./vacancy-client";
 export default function Workspace() {
   const t = useTranslations("workspace")
   const translations:VacancyTranslations = {
+    toProfile: t("button-profile"),
     vacancyError:t("vacancy-error"),
     vacancyTitle:t("vacancy-title"),
     vacancyDescription:t("vacancy-description"),

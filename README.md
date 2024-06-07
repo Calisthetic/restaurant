@@ -3,10 +3,21 @@
 ## О проекте
 
 Разработан с использованием фреймворка [Next.js](https://nextjs.org/).
+
 Диаграмма базы данных [здесь](https://dbdiagram.io/d/restaurant-66561d06b65d933879e8709f).
+
 Размещён на хостинге при помощи [Velcel](https://vercel.com).
+
 База данных [Postgres](https://vercel.com/docs/storage/vercel-postgres/) расположена на Vercel.
+
 Перевод динамического контента GoodleAPI.
+
+Языки:
+
+- HTML
+- CSS
+- TypeScript (типизированный JS)
+- SQL
 
 ### Используемые библиотеки
 
@@ -26,6 +37,8 @@
 
 - [Node.js](https://nodejs.org/en) - используемая в проекте среда выполнения JavaScript
 - [Visual Studio Code](https://code.visualstudio.com/download) - редактор кода
+
+### Установка конфигурации
 
 ### Старт
 

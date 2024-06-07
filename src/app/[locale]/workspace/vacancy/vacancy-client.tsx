@@ -4,9 +4,10 @@ import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import NoAuthWorkspace, { NoAuthWorkspaceTranslations } from "@/components/no-auth";
 import Loading from "@/components/loading";
-import Translate from "@/components/translate";
+import Link from "next/link";
 
 export type VacancyTranslations = {
+  toProfile:string
   vacancyError:string
   vacancyTitle:string
   vacancyDescription:string
@@ -54,7 +55,7 @@ export default function VacancyWorkspace({translations, noAuth}
 
   const handlePrint = () => {
     var prtContent = document.getElementById("vac");
-    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    var WinPrint = window.open('smith', 'smith', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
     if (!prtContent) {
       return null
     }
@@ -93,9 +94,7 @@ export default function VacancyWorkspace({translations, noAuth}
             const dateString:string = e.target.value
             setVacancyDate(`${dateString.slice(8)}.${dateString.slice(5, -3)}.${dateString.slice(0, -6)}`)
           }} required className="outline-none w-full p-1 border-border rounded border-b-2" type="date" defaultValue={getCurrentDate("input")}></input>
-          <div className="flex justify-center">
-            
-          </div>
+          
         </div>
         <div className="overflow-x-auto mt-8">
           <p className="text-lg mb-2 text-center font-semibold">{translations.vacancyPreview}</p>
@@ -133,7 +132,7 @@ export default function VacancyWorkspace({translations, noAuth}
             </div>
           </div>
         </div>
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8 flex-col items-center">
           <button className="p-[3px] relative mt-4" onClick={handlePrint}>
             <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
               <div className="px-8 py-2 w-fit rounded-[6px] font-semibold uppercase
@@ -142,6 +141,10 @@ export default function VacancyWorkspace({translations, noAuth}
               </div>
             </div>
           </button>
+          <Link href={"/" + localActive + "/workspace/profile"} 
+          className="font-semibold text-foreground-primary transition-colors
+          border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+          rounded-lg text-sm px-4 py-2 mt-4 text-center">{translations.toProfile}</Link>
         </div>
       </div>
     ) : (

@@ -62,7 +62,9 @@
     "already-auth": "You are successfully logged in!",
     "button-entry": "Sign in",
     "button-exit": "Sign out",
-    "button-to-workspace": "To workspace"
+    "button-to-workspace": "To workspace",
+    "button-ok": "OK",
+    "error": "Incorrect login or password..."
   },
   "workspace": {
     "no-auth": "It looks like you are not logged in",

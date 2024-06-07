@@ -11,7 +11,9 @@ export default function SignIn(props:any) {
     alreadyAuth: t("already-auth"),
     buttonEntry: t("button-entry"),
     buttonExit: t("button-exit"),
-    buttonToWorkspace: t("button-to-workspace")
+    buttonToWorkspace: t("button-to-workspace"),
+    buttonOk: t("button-ok"),
+    error: t("error")
   }
   return (
     <>

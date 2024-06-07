@@ -7,7 +7,7 @@ export default async function PostTablesData(
 ) {
   const roles = [
     {
-      name: 'Админ'
+      name: 'Администратор'
     },
     {
       name: 'Повар'

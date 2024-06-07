@@ -62,7 +62,9 @@
     "already-auth": "Vous êtes connecté avec succès!",
     "button-entry": "Entrer",
     "button-exit": "Sortir",
-    "button-to-workspace": "Travailler"
+    "button-to-workspace": "Travailler",
+    "button-ok": "OK",
+    "error": "Identifiant ou mot de passe incorrect..."
   },
   "workspace": {
     "no-auth": "Il semble que vous n'êtes pas connecté",
