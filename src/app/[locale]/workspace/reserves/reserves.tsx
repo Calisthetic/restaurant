@@ -74,7 +74,7 @@ export default function ReservesWorkspace({translations, noAuth}
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{translations.reservesTitle}</h1>
         
-        <div className="mt-10 mb-20 mx-2 overflow-x-auto">
+        <div className="mt-10 mx-2 overflow-x-auto">
           <table className=" min-w-min w-full rounded-lg overflow-hidden font-medium font-sans text-nowrap">
             <thead className=" bg-background-secondary">
               <tr>
@@ -106,12 +106,12 @@ export default function ReservesWorkspace({translations, noAuth}
               }
             </tbody>
           </table>
-          <div className="w-full justify-center flex">
-            <Link href={"/" + localActive + "/workspace/profile"} 
-            className="font-semibold text-foreground-primary transition-colors
-            border border-border hover:border-foreground-accent hover:bg-foreground-accent 
-            rounded-lg text-sm px-4 py-2 mt-8 text-center">{translations.toProfile}</Link>
-          </div>
+        </div>
+        <div className="w-full justify-center flex mb-20">
+          <Link href={"/" + localActive + "/workspace/profile"} 
+          className="font-semibold text-foreground-primary transition-colors
+          border border-border hover:border-foreground-accent hover:bg-foreground-accent 
+          rounded-lg text-sm px-4 py-2 mt-8 text-center">{translations.toProfile}</Link>
         </div>
       </div>
     ) : (

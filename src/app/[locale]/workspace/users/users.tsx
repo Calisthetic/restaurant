@@ -147,52 +147,54 @@ export default function UsersWorkspace({translations, noAuth, roles}
       <div className='xl:max-w-7xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl w-full'>
         <h1 className='text-center mt-16 text-2xl sm:text-3xl lg:text-4xl font-bold font-minion'>{translations.usersTitle}</h1>
         
-        <div className="mt-10 mb-20 mx-2 overflow-x-auto">
-          <table className=" min-w-min w-full rounded-lg overflow-hidden font-medium font-sans text-nowrap">
-            <thead className=" bg-background-secondary">
-              <tr>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataName}</th>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataRole}</th>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataEmail}</th>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataLogin}</th>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataPassword}</th>
-                <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                users.map((item:User) => (
-                  <tr key={item.id} className="border-b border-border">
-                    <td className="px-1 sm:px-2 md:px-3 py-2">
-                      <Translate to={localActive} text={item.second_name + " " + item.first_name + (item.third_name === null ? "" : " " + item.third_name)}></Translate>
-                    </td>
-                    <td className="px-1 sm:px-2 md:px-3 py-2">
-                      <Translate to={localActive} text={item.role_name}></Translate>
-                    </td>
-                    <td className="px-1 sm:px-2 md:px-3 py-2">{item.email}</td>
-                    <td className="px-1 sm:px-2 md:px-3 py-2">{item.login}</td>
-                    <td className="px-1 sm:px-2 md:px-3 py-2">{item.password}</td>
-                    <td className="px-1 py-2 flex justify-center">
-                      <button onClick={() => setSelectedUserId(item.id)}>
-                        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" 
-                        className="w-5 h-5 hover:fill-red-500 transition-all">
-                          <path d="M432 80h-82.38l-34-56.75C306.1 8.827 291.4 0 274.6 0H173.4C156.6 0 141 8.827 132.4 
-                          23.25L98.38 80H16C7.125 80 0 87.13 0 96v16C0 120.9 7.125 128 16 128H32v320c0 35.35 28.65 64 
-                          64 64h256c35.35 0 64-28.65 64-64V128h16C440.9 128 448 120.9 448 112V96C448 87.13 440.9 80 432 
-                          80zM171.9 50.88C172.9 49.13 174.9 48 177 48h94c2.125 0 4.125 1.125 5.125 2.875L293.6 80H154.4L171.9 
-                          50.88zM352 464H96c-8.837 0-16-7.163-16-16V128h288v320C368 456.8 360.8 464 352 464zM224 416c8.844 0 
-                          16-7.156 16-16V192c0-8.844-7.156-16-16-16S208 183.2 208 192v208C208 408.8 215.2 416 224 416zM144 
-                          416C152.8 416 160 408.8 160 400V192c0-8.844-7.156-16-16-16S128 183.2 128 192v208C128 408.8 135.2 
-                          416 144 416zM304 416c8.844 0 16-7.156 16-16V192c0-8.844-7.156-16-16-16S288 183.2 288 192v208C288 
-                          408.8 295.2 416 304 416z"/>
-                        </svg>
-                      </button> 
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
+        <div className="mt-10 mb-20 mx-2">
+          <div className="overflow-x-auto">
+            <table className=" min-w-min w-full rounded-lg overflow-hidden font-medium font-sans text-nowrap">
+              <thead className=" bg-background-secondary">
+                <tr>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataName}</th>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataRole}</th>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataEmail}</th>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataLogin}</th>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start">{translations.usersDataPassword}</th>
+                  <th scope="col" className="px-1 sm:px-2 md:px-3 py-2 text-start"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  users.map((item:User) => (
+                    <tr key={item.id} className="border-b border-border">
+                      <td className="px-1 sm:px-2 md:px-3 py-2">
+                        <Translate to={localActive} text={item.second_name + " " + item.first_name + (item.third_name === null ? "" : " " + item.third_name)}></Translate>
+                      </td>
+                      <td className="px-1 sm:px-2 md:px-3 py-2">
+                        <Translate to={localActive} text={item.role_name}></Translate>
+                      </td>
+                      <td className="px-1 sm:px-2 md:px-3 py-2">{item.email}</td>
+                      <td className="px-1 sm:px-2 md:px-3 py-2">{item.login}</td>
+                      <td className="px-1 sm:px-2 md:px-3 py-2">{item.password}</td>
+                      <td className="px-1 py-2 flex justify-center">
+                        <button onClick={() => setSelectedUserId(item.id)}>
+                          <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" 
+                          className="w-5 h-5 hover:fill-red-500 transition-all">
+                            <path d="M432 80h-82.38l-34-56.75C306.1 8.827 291.4 0 274.6 0H173.4C156.6 0 141 8.827 132.4 
+                            23.25L98.38 80H16C7.125 80 0 87.13 0 96v16C0 120.9 7.125 128 16 128H32v320c0 35.35 28.65 64 
+                            64 64h256c35.35 0 64-28.65 64-64V128h16C440.9 128 448 120.9 448 112V96C448 87.13 440.9 80 432 
+                            80zM171.9 50.88C172.9 49.13 174.9 48 177 48h94c2.125 0 4.125 1.125 5.125 2.875L293.6 80H154.4L171.9 
+                            50.88zM352 464H96c-8.837 0-16-7.163-16-16V128h288v320C368 456.8 360.8 464 352 464zM224 416c8.844 0 
+                            16-7.156 16-16V192c0-8.844-7.156-16-16-16S208 183.2 208 192v208C208 408.8 215.2 416 224 416zM144 
+                            416C152.8 416 160 408.8 160 400V192c0-8.844-7.156-16-16-16S128 183.2 128 192v208C128 408.8 135.2 
+                            416 144 416zM304 416c8.844 0 16-7.156 16-16V192c0-8.844-7.156-16-16-16S288 183.2 288 192v208C288 
+                            408.8 295.2 416 304 416z"/>
+                          </svg>
+                        </button> 
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
           <div className="w-full items-center flex-col flex">
             <button className="p-[3px] relative mt-8" onClick={() => setIsAddModalOpen(true)}>
               <div className="inset-0 p-0.5 w-fit bg-gradient-to-r from-teal-300 to-lime-300 rounded-lg">
