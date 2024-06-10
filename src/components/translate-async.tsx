@@ -7,6 +7,7 @@ async function translateText(text:string, localActive:string):Promise<string> {
 }
 
 export default function TranslateAsync({to, text}:{to:string, text:string}) {
+  if (to === "ru") return text
   const data = translateText(text, to)
   return data
 }

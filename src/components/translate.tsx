@@ -7,6 +7,8 @@ function translateText(text:string, localActive:string) {
 }
 
 export default function Translate({ to, text }:{ to:string, text:string }) {
+  if (to === "ru") return text
+  
   const [translatedText, setTranslatedText] = useState('');
 
   useEffect(() => {
