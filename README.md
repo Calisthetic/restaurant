@@ -57,7 +57,7 @@ npm run dev
 Создание проекта с использованием фреймворка Next.js
 
 ```bash
-npm creat next-app restaurant
+npm create next-app restaurant
 ```
 
 Инициализация БД [PostgreSQL](https://www.postgresql.org/) по [этому видео](https://youtu.be/_ad99LhxBeQ?si=gIPsllQ7MOi7prCb)

@@ -55,7 +55,8 @@ export default function VacancyWorkspace({translations, noAuth}
 
   const handlePrint = () => {
     var prtContent = document.getElementById("vac");
-    var WinPrint = window.open('smith', 'smith', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    var WinPrint = window.open('smith', 'smith', 
+      'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
     if (!prtContent) {
       return null
     }

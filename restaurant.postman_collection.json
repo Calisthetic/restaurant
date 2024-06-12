@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "77202785-98a9-4b07-b18a-7d16f8f7f9b5",
+		"name": "restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27350646",
+		"_collection_link": "https://www.postman.com/security-specialist-12257836/workspace/restaurant-tests/collection/27350646-77202785-98a9-4b07-b18a-7d16f8f7f9b5?action=share&source=collection_link&creator=27350646"
+	},
+	"item": [
+		{
+			"name": "dbtables",
+			"item": [
+				{
+					"name": "data",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/dbtables/data",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"dbtables",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/dbtables/data",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"dbtables",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/dbtables/data",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"dbtables",
+										"data"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/dbtables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"dbtables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/dbtables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"dbtables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/dbtables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"dbtables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dishes",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/dishes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reserves",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/reserves",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reserves"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"user_name\": \"tyf\",\r\n\t\"user_phone\": \"67585\",\r\n\t\"people_count\": 5,\r\n\t\"message\": null,\r\n\t\"reserve_at\": \"2024-05-31T12:00\",\r\n\t\"table_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reserves",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reserves"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tables",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"user1\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/users/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[id]",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/users/6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"string1\",\r\n  \"second_name\": \"string2\",\r\n  \"third_name\": \"string3\",\r\n  \"email\": \"string@gmail.com\",\r\n  \"login\": \"string\",\r\n  \"password\": \"string\",\r\n  \"gender\": true,\r\n  \"role_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "[id]",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/recipes/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"recipes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "translate api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=fr&dt=t&q=Закуска из красной рыбы в хрустящем тесте",
+					"protocol": "https",
+					"host": [
+						"translate",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"translate_a",
+						"single"
+					],
+					"query": [
+						{
+							"key": "client",
+							"value": "gtx"
+						},
+						{
+							"key": "sl",
+							"value": "ru"
+						},
+						{
+							"key": "tl",
+							"value": "fr"
+						},
+						{
+							"key": "dt",
+							"value": "t"
+						},
+						{
+							"key": "q",
+							"value": "Закуска из красной рыбы в хрустящем тесте"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://restaurant-dun-six.vercel.app/",
+			"type": "string"
+		},
+		{
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"value": "https://restaurant-dun-six.vercel.app/",
+			"type": "string"
+		}
+	]
+}
