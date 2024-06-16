@@ -2,12 +2,12 @@
   "data": {
     "restaurant": "Smith",
     "phone": "+7(982)487-37-95",
-    "email": "yarik.malugin2004@mail.ru",
+    "email": "gmail@gmail.com",
     "adress": "Perm, rue Popova 101"
   },
   "header": {
     "title": "Smith",
-    "description": "Complété par l'étudiant 20SPI4",
+    "description": "Tous droits réservés",
     "menu": "Menu",
     "gallery": "Galerie",
     "staff": "Employés"
@@ -19,7 +19,7 @@
     "section-2-3": "Samedi-Dim - 12:00-04:00",
     "section-3-1": "Viens à nous",
     "section-4-1": "Réserver une table",
-    "section-5-1": "Complété par l'étudiant 20SPI4"
+    "section-5-1": "Tous droits réservés"
   },
   "main": {
     "title": "Smith",
@@ -32,7 +32,7 @@
     "contact-title": "Contacts",
     "contact-adress": "Perm, rue Popova 101",
     "contact-description-1": "Notre restaurant est un leader en matière d'organisation d'événements, de service et de restauration pour les secteurs public et privé. Nous possédons une riche expérience dans la préparation des meilleurs types d’aliments conformément aux normes internationales de sécurité alimentaire.",
-    "contact-description-2": "Vous pouvez également nous contacter par téléphone +7(982)487-37-95 ou envoyer un e-mail à yarik.malugin2004@mail.ru, ou laisser une demande ici :",
+    "contact-description-2": "Vous pouvez également nous contacter par téléphone +7(982)487-37-95 ou envoyer un e-mail à gmail@gmail.com, ou laisser une demande ici :",
     "reserve-name": "Votre nom",
     "reserve-people": "Combien de personnes viendront?",
     "reserve-message": "Message / Exigences supplémentaires",
